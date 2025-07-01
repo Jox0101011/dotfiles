@@ -14,8 +14,8 @@ echo "Moved with sucess."
 sleep 2
 echo "Installing packages pacman!...cancel?"
 packages/./strap.sh
-sudo pacman -S --needed packages/packages_pacman.txt
+sudo pacman -S --needed - packages/packages_pacman.txt <--needed
 sleep 5
 echo "Installing yay packages...cancel?"
-yay -S --needed packages/packages_yay.txt
+yay -S --needed - <packages/packages_yay.txt
 echo "xfce4..; make it"
