@@ -5,4 +5,4 @@
 - KITTY
 - VIM
 - NEOVIM
-- AND MOREEEE!!
+- AND MORE!!
