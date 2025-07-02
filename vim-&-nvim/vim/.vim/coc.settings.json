@@ -1,0 +1,28 @@
+{
+    "languageserver": {
+        "python": {
+            "command": "pyright-langserver",
+            "args": ["--stdio"],
+            "filestype": ["python"]
+        },
+        "c_cpp": {
+            "command": "clangd",
+            "filestype": ["c", "cpp"]
+            },
+            "ruby": {
+                "command": "solargraph",
+                "args": ["stdio"],
+                "filestype": ["ruby"]
+            },
+            "vim": {
+                "command" : "vim-language-server",
+                "args": ["--stdio"],
+                "filestype": ["vim"]
+            },
+            "bash": {
+                "command": "bash-language-server",
+                "args": ["start"],
+                "filestype": ["sh"]
+            }
+        }
+    }
