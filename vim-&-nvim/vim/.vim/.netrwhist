@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/hazer/.designer'
+let g:netrw_dirhist_5='/home/hazer'
 let g:netrw_dirhist_4='/home/hazer/.gnupg'
 let g:netrw_dirhist_3='/home/hazer'
 let g:netrw_dirhist_2='/home'

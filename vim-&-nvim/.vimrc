@@ -16,19 +16,23 @@ Plug 'jiangmiao/auto-pairs'
 
 Plug 'junegunn/fzf.vim'
 
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 Plug 'airblade/vim-gitgutter'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'ryanoasis/vim-devicons'
-
-Plug 'vim-airline/vim-airline-themes'
 
 Plug 'mhinz/vim-signify'
 
 Plug 'mhinz/vim-startify'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'nvim-tree/nvim-web-devicons'
+
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+Plug 'mengelbrecht/lightline-bufferline'
 
 call plug#end()               
 
@@ -36,6 +40,11 @@ call plug#end()
 "|VIM .vimrc Hackzer|
 "==----------------==
 
+set termguicolors
+set t_Co=256
+set ttyfast
+set lazyredraw
+set redrawtime=10000
 set nocompatible
 set number
 set relativenumber
@@ -53,18 +62,58 @@ set incsearch
 set ignorecase
 set smartcase
 colorscheme codedark
-
+set laststatus=2
+let g:lightline = {
+            \ 'colorscheme': 'deus',
+            \ 'active': {
+            \ 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'  ] ],
+            \
+            \ 'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileenconding', 'filetype' ] ]
+            \ }, 
+            \ 'tabline': {
+            \   'left': [ ['buffers'] ],
+            \   'right': [ ['close'] ]
+            \ },
+            \ 'component_expand': {
+            \   'buffers': 'lightline#bufferline#buffers'
+            \ },
+            \ 'component_type': {
+            \   'buffers': 'tabsel'
+            \ }
+            \ }
+let g:lightline.component = {
+            \ 'lineinfo': '%3l:%-2v',
+            \ 'percent': '%3p%%',
+            \ 'fileformat': '%{&fileformat}',
+            \ 'fileencoding': '%{&fileencoding}',
+            \ 'filetype': '%{&filetype}',
+            \ 'mode': '%{toupper(mode())}'
+            \ }
+let g:lightline.component_function = {
+            \ 'gitbranch': "FugitiveHead"
+            \}
+let g:lightline.active.right = [ [ 'lineinfo' ], [ 'percent' ], [ 'gitbranch', 'fileformat', 'fileencoding', 'filetype' ] ]
+let g:lightline.component_expand = {
+            \ 'readonly': 'lightline#devicons#readonly',
+            \ 'fileformat': 'lightline#devicons#fileformat',
+            \ 'filetype': 'lightline#devicons#filetype'
+            \ }
+let g:lightline.component_type = {
+            \ 'readonlyy': 'error',
+            \ 'fileformat': 'right',
+            \ 'filetype': 'right',
+            \ }
 "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 "|VIM Atalhos/configs Hackzer|
 "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-k> :bnext<CR>
+nmap <C-b> :Buffers<CR>
 
 nmap <leader>gs :G<CR>
  
 noremap <space> :nohlsearch<CR>
-
-let g:airline_powerline_fonts = 1
 
 set updatetime=100
 let g:gitgutter_enabled = 1
