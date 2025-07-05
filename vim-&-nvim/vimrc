@@ -1,0 +1,127 @@
+"===================== 
+"|VIM Plugins Hackzer|
+"===================== 
+
+call plug#begin("~/.vim/plugged")   
+
+Plug 'preservim/nerdtree' 
+
+Plug 'tpope/vim-fugitive' 
+
+Plug 'tpope/vim-surround'
+
+Plug 'terroo/vim-auto-markdown'
+
+Plug 'zxqfl/tabnine-vim'
+
+Plug 'tomasiser/vim-code-dark'
+
+Plug 'jiangmiao/auto-pairs'  
+
+Plug 'junegunn/fzf.vim'
+
+Plug 'itchyny/lightline.vim'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'mhinz/vim-signify'
+
+Plug 'mhinz/vim-startify'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'nvim-tree/nvim-web-devicons'
+
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+
+Plug 'mengelbrecht/lightline-bufferline'
+
+call plug#end()               
+
+"==----------------==
+"|VIM .vimrc Hackzer|
+"==----------------==
+
+set termguicolors
+set t_Co=256
+set ttyfast
+set lazyredraw
+set redrawtime=10000
+set nocompatible
+set number
+set relativenumber
+set shiftwidth=4
+set tabstop=4
+set expandtab
+set autoindent
+set smartindent
+set wrap
+set mouse=a
+syntax on
+set clipboard=unnamedplus
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+colorscheme codedark
+set laststatus=2
+set cursorline
+set showcmd
+set wildmenu
+
+let g:lightline = {
+            \ 'colorscheme': 'deus',
+            \ 'active': {
+            \ 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'  ] ],
+            \
+            \ 'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileenconding', 'filetype' ] ]
+            \ }, 
+            \ 'tabline': {
+            \   'left': [ ['buffers'] ],
+            \   'right': [ ['close'] ]
+            \ },
+            \ 'component_expand': {
+            \   'buffers': 'lightline#bufferline#buffers'
+            \ },
+            \ 'component_type': {
+            \   'buffers': 'tabsel'
+            \ }
+            \ }
+let g:lightline.component = {
+            \ 'lineinfo': '%3l:%-2v',
+            \ 'percent': '%3p%%',
+            \ 'fileformat': '%{&fileformat}',
+            \ 'fileencoding': '%{&fileencoding}',
+            \ 'filetype': '%{&filetype}',
+            \ 'mode': '%{toupper(mode())}'
+            \ }
+let g:lightline.component_function = {
+            \ 'gitbranch': "FugitiveHead"
+            \}
+let g:lightline.active.right = [ [ 'lineinfo' ], [ 'percent' ], [ 'gitbranch', 'fileformat', 'fileencoding', 'filetype' ] ]
+let g:lightline.component_expand = {
+            \ 'readonly': 'lightline#devicons#readonly',
+            \ 'fileformat': 'lightline#devicons#fileformat',
+            \ 'filetype': 'lightline#devicons#filetype'
+            \ }
+let g:lightline.component_type = {
+            \ 'readonlyy': 'error',
+            \ 'fileformat': 'right',
+            \ 'filetype': 'right',
+            \ }
+"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+"|VIM Atalhos/configs Hackzer|
+"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-k> :bnext<CR>
+nmap <C-b> :Buffers<CR>
+
+nmap <leader>gs :G<CR>
+ 
+noremap <space> :nohlsearch<CR>
+
+set updatetime=100
+let g:gitgutter_enabled = 1
