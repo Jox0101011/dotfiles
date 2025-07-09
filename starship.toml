@@ -40,6 +40,10 @@ Redhat = " "
 Ubuntu = " "
 Windows = " "
 Android = " "
+Mint = " "
+SUSE = " "
+Nobara = " "
+Unknown = " "
 
 [character]
 success_symbol = " [](green)"
