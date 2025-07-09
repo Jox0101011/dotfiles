@@ -9,7 +9,7 @@
       </property>
     </property>
     <property name="idle-activation" type="empty">
-      <property name="delay" type="int" value="10"/>
+      <property name="delay" type="int" value="40"/>
     </property>
   </property>
 </channel>
