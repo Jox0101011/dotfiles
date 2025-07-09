@@ -39,6 +39,7 @@ Raspbian = " "
 Redhat = " "
 Ubuntu = " "
 Windows = " "
+Android = " "
 
 [character]
 success_symbol = " [](green)"
@@ -161,11 +162,6 @@ symbol = " "
 style = "bold bright-green"
 format = "via [$symbol($version )]($style)"
 
-[javascript]
-symbol = " "
-style = "bold yellow"
-format = "via [$symbol($version )]($style)"
-
 [python]
 symbol = " "
 style = "bold yellow"
@@ -188,11 +184,6 @@ format = "via [$symbol($version )]($style)"
 
 [cpp]
 symbol = " "
-style = "bold blue"
-format = "via [$symbol($version )]($style)"
-
-[csharp]
-symbol = " "
 style = "bold blue"
 format = "via [$symbol($version )]($style)"
 
