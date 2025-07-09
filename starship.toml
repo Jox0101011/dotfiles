@@ -7,13 +7,38 @@
 ## The minimal, blazing-fast, and infinitely customizable prompt for any shell!
 
 format = "$all"
-right_format = """$git_branch$git_status$cmd_duration$directory"""
+right_format = """$git_branch$git_status$cmd_duration$directory $os """
 
 # Disable the blank line at the start of the prompt
 add_newline = false
 
 [line_break]
 disabled = true
+
+[os]
+format = "[](fg:blue bg:none)[$symbol](fg:white bg:blue)($style)[](fg:blue bg:none)"
+style = "bold blue"
+disabled = false
+
+[os.symbols]
+Alpine = " "
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Garuda = "󰛓 "
+Gentoo = " "
+Kali = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+NixOS = " "
+OpenBSD = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+Ubuntu = " "
+Windows = " "
 
 [character]
 success_symbol = " [](green)"
@@ -71,4 +96,168 @@ am_or_rebase = "AM/REBASE"
 style =	"yellow"
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
+#[nodejs]
+#symbol = " "
+
+#[typescript]
+#symbol = " "
+
+#[javascript]
+#symbol = " "
+
+#[python]
+#symbol = " "
+
+#[rust]
+#symbol = " "
+
+#[golang]
+#symbol = " "
+
+#[c]
+#symbol = " "
+
+#[cpp]
+#symbol = " "
+
+#[java]
+#symbol = " "
+
+#[ruby]
+#symbol = " "
+
+#[php]
+#symbol = " "
+
+#[swift]
+#symbol = "ﯣ "
+
+#[kotlin]
+#symbol = " "
+
+#[lua]
+#symbol = " "
+
+#[perl]
+#symbol = " "
+
+#[elixir]
+#symbol = " "
+
+#[haskell]
+#symbol = " "
+
+#[scala]
+#symbol = " "
+
+#[julia]
+#symbol = " "
+
+#[docker_context]
+#symbol = " "
+
+[nodejs]
+symbol = " "
+style = "bold bright-green"
+format = "via [$symbol($version )]($style)"
+
+[javascript]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[rust]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[c]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[cpp]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[csharp]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[java]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[ruby]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[php]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[swift]
+symbol = "ﯣ "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[kotlin]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[lua]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[perl]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[elixir]
+symbol = " "
+style = "bold purple"
+format = "via [$symbol($version )]($style)"
+
+[haskell]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[scala]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[julia]
+symbol = " "
+style = "bold purple"
+format = "via [$symbol($version )]($style)"
+
+[docker_context]
+symbol = " "
+style = "bold blue"
+format = "[$symbol$context]($style)"
+
+[package]
+symbol = "+ "
+style = "bold orange"
+format = "is [$symbol$version]($style)"
 
