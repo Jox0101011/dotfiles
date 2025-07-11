@@ -27,7 +27,8 @@ show_always = true
 format = "[](fg:blue bg:none)[$symbol](fg:black bg:blue)($style)[](fg:blue bg:none)"
 style = "bold blue"
 disabled = true
-
+[netns]
+disabled = true
 [os.symbols]
 Alpine = " "
 Arch = " "
@@ -81,23 +82,23 @@ truncation_length = 3
 truncate_to_repo=false
 
 [git_branch]
-format = "[](fg:black bg:none)[$branch]($style)[](fg:black bg:black)[](fg:green bg:black)[](fg:black bg:green)[](fg:green bg:none) "
+format = "[](fg:black bg:none)[$branch]($style)[](fg:black bg:black)[](fg:green bg:black)[ ](fg:black bg:green)[](fg:green bg:none) "
 style = "fg:white bg:black"
 
 [git_status]
-format="[](fg:black bg:none)[$all_status$ahead_behind]($style)[](fg:black bg:black)[](fg:red bg:black)[](fg:black bg:red)[](fg:red bg:none) "
+format="[](fg:black bg:none)[$all_status$ahead_behind]($style)[](fg:black bg:black)[](fg:red bg:black)[ ](fg:black bg:red)[](fg:red bg:none) "
 style = "fg:white bg:black"
 conflicted = "="
-ahead =	"⇡${count}"
-behind = "⇣${count}"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date = "󰄬"
-untracked = "?${count}"
-stashed = "󰐃"
-modified = "!${count}"
-staged = "+${count}"
-renamed = "»${count}"
-deleted = "-${count}"
+ahead =	"⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count} ⇣${behind_count} "
+up_to_date = "󰄬 "
+untracked = "?${count} "
+stashed = "󰐃 "
+modified = "! ${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "-${count} "
 
 [git_commit]
 format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
