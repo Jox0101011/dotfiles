@@ -8,7 +8,13 @@ Plug 'preservim/nerdtree'
 
 Plug 'tpope/vim-fugitive' 
 
+Plug 'junegunn/goyo.vim'
+
+Plug 'vimwiki/vimwiki'
+
 Plug 'tpope/vim-surround'
+
+Plug 'terroo/vim-auto-markdown'
 
 Plug 'tomasiser/vim-code-dark'
 
@@ -34,17 +40,28 @@ Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
 Plug 'mengelbrecht/lightline-bufferline'
 
+Plug 'yorickpeterse/happy_hacking.vim'
+
+Plug 'kien/rainbow_parentheses.vim'
+
+Plug 'w0rp/ale'
+
+Plug 'ervandew/supertab'
+
 call plug#end()               
 
 "==----------------==
 "|VIM .vimrc Hackzer|
 "==----------------==
-
+"
+set foldmethod=marker
+set foldlevelstart=0
+set title
 set termguicolors
 set t_Co=256
 set ttyfast
 set lazyredraw
-set redrawtime=10000
+set redrawtime=50
 set nocompatible
 set number
 set relativenumber
@@ -61,8 +78,13 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-colorscheme codedark
+colorscheme happy_hacking
 set laststatus=2
+set cursorline
+set showcmd
+set wildmenu
+set showtabline=2
+set confirm 
 let g:lightline = {
             \ 'colorscheme': 'deus',
             \ 'active': {
@@ -108,8 +130,10 @@ let g:lightline.component_type = {
 "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 nmap <C-n> :NERDTreeToggle<CR>
-nmap <C-k> :bnext<CR>
+nmap <C-k> :bprevious<CR>
+nmap <C-l> :bnext<CR>
 nmap <C-b> :Buffers<CR>
+nmap <C-t> :terminal<CR>
 
 nmap <leader>gs :G<CR>
  
@@ -117,3 +141,10 @@ noremap <space> :nohlsearch<CR>
 
 set updatetime=100
 let g:gitgutter_enabled = 1
+
+"\==============================/
+" | Commands Custom and Macros |
+"/==============================\
+
+command! MemHelp :vsplit ~/.vim/docs/memlsp.vimdoc
+command! LibcHelp :vsplit ~/.vim/docs/libc.vimdoc
