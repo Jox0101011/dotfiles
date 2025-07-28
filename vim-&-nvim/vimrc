@@ -1,7 +1,6 @@
 "===================== 
 "|VIM Plugins Hackzer|
 "===================== 
-
 call plug#begin("~/.vim/plugged")   
 
 Plug 'preservim/nerdtree' 
@@ -46,14 +45,30 @@ Plug 'kien/rainbow_parentheses.vim'
 
 Plug 'w0rp/ale'
 
+Plug 'sheerun/vim-polyglot'
+
 Plug 'ervandew/supertab'
 
-call plug#end()               
+Plug 'luochen1990/rainbow'
+
+call plug#end()     
 
 "==----------------==
 "|VIM .vimrc Hackzer|
 "==----------------==
 
+colorscheme happy_hacking
+
+augroup FontScheme
+    autocmd!
+autocmd ColorScheme * highlight Comment cterm=italic
+autocmd ColorScheme * highlight Keyword cterm=italic
+autocmd ColorScheme * highlight Function cterm=bold
+autocmd ColorScheme * highlight MatchParen ctermfg=cyan ctermbg=NONE
+augroup END
+
+set foldmethod=marker
+set foldlevelstart=0
 set title
 set termguicolors
 set t_Co=256
@@ -76,13 +91,13 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-colorscheme happy_hacking
 set laststatus=2
 set cursorline
 set showcmd
 set wildmenu
 set showtabline=2
-set confirm 
+set confirm
+let g:loaded_matchparen = 1
 let g:lightline = {
             \ 'colorscheme': 'deus',
             \ 'active': {
@@ -139,3 +154,10 @@ noremap <space> :nohlsearch<CR>
 
 set updatetime=100
 let g:gitgutter_enabled = 1
+
+"\==============================/
+" | Commands Custom and Macros |
+"/==============================\
+
+command! MemHelp :vsplit ~/.vim/docs/memlsp.vimdoc
+command! LibcHelp :vsplit ~/.vim/docs/libc.vimdoc
