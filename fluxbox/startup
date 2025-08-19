@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Change your keymap:
+xmodmap "/home/hazer/.Xmodmap"
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+# unclutter -idle 2 &
+# wmnd &
+# wmsmixer -w &
+# idesk &
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+feh --bg-scale /home/hazer/.wallpaper3.png
+sleep 0.9 && picom --experimental-backends --config /home/hazer/.config/picom/picom.conf &
+
+xpad &
+nm-applet &
+volumeicon &
+parcellite &
+# or if you want to keep a log:
+# exec fluxbox -log "/home/hazer/.fluxbox/log"
+exec fluxbox

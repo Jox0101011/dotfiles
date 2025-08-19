@@ -1,0 +1,318 @@
+
+!----------------------------------------------------------------------
+! Basic Athena Setup
+!----------------------------------------------------------------------
+
+! Defining some colours:
+#define ButtonFG rgb:FF/FF/F0
+! Brown theme
+#define ButtonBG rgb:8B/79/5E
+! Blue theme
+!#define ButtonBG rgb:60/7B/8B
+! Purple theme
+!#define ButtonBG rgb:8B/47/89
+
+*shadowWidth: 0
+*topShadowContrast: 40
+*bottomShadowContrast: 60
+*highlightThickness: 0
+*MenuButton.shadowWidth: 0
+
+*beNiceToColormap: False
+
+! The following resource can be: rectangle (default), oval, ellipse, and roundedRectangle
+*shapeStyle: roundedRectangle
+*cornerRoundPercent: 10
+
+*Scrollbar.background: #fffff0
+*Scrollbar.foreground: #fffff0
+*Scrollbar.borderWidth: 0
+*Scrollbar.thickness: 8
+*Scrollbar.minimumThumb: 7
+*Scrollbar.backgroundPixmap: gradient:horizontal?dimension=12&start=#cdcdc1&end=#cdcdc1
+
+!----------------------------------------------------------------------
+! XBoard
+!----------------------------------------------------------------------
+
+! Configuring XBoard
+xboard*MenuButton*Justify:    left
+!xboard*MenuButton*MenuButtonStyle: simple
+!xboard*MenuButton*MenuButtonStyle: action
+xboard*MenuButton*MenuButtonStyle: selecta
+xboard*message*background: ButtonFG
+!.xboard.ICS Input.normalLayout.form.text.background: #FFFAFA
+xboard*.form.text.background: #FFFAFA
+.xboard.normalLayout.form.menuBar.File.foreground: ButtonFG
+.xboard.normalLayout.form.menuBar.File.background: ButtonBG
+.xboard.normalLayout.form.menuBar.Mode.foreground: ButtonFG
+.xboard.normalLayout.form.menuBar.Mode.background: ButtonBG
+.xboard.normalLayout.form.menuBar.Action.foreground: ButtonFG
+.xboard.normalLayout.form.menuBar.Action.background: #CD8500
+.xboard.normalLayout.form.menuBar.Step.foreground: ButtonFG
+.xboard.normalLayout.form.menuBar.Step.background: ButtonBG
+.xboard.normalLayout.form.menuBar.Options.foreground: ButtonFG
+.xboard.normalLayout.form.menuBar.Options.background: ButtonBG
+.xboard.normalLayout.form.menuBar.Help.foreground: ButtonFG
+.xboard.normalLayout.form.menuBar.Help.background: ButtonBG
+.xboard.normalLayout.form.buttonBar.Command.foreground: ButtonFG
+.xboard.normalLayout.form.buttonBar.Command.background: ButtonBG
+
+!Keybindings for XBoard
+
+XBoard*form.translations: \
+Ctrl<Key>?: AboutProc() \n\
+     <Key>y: AcceptProc() \n\
+     <Key>n: DeclineProc() \n\
+     <Key>r: RematchProc() \n\
+     <Key>s: SaveGameProc() \n\
+     <Key>d: DrawProc() \n\
+     <Key>Right: ForwardProc() \n\
+     <Key>Left: BackwardProc() \n\
+     <Key>Up: ToStartProc() \n\
+     <Key>Down: ToEndProc() \n\
+     <Key>b: BlindfoldProc()
+     <Key>q: QuitProc() \n\
+     <Key>a: AnalysisModeProc() \n\
+     <Key>f: FlipViewProc() \n\
+     <Key>i: IcsInputBoxProc() \n\
+     <Key>m: MailMoveProc() \n\
+
+!----------------------------------------------------------------------
+! Colours
+!----------------------------------------------------------------------
+
+#include "/home/thierry/.colours/raised"
+
+!----------------------------------------------------------------------
+! Aterm
+!----------------------------------------------------------------------
+
+aterm*loginShell:true
+aterm*transparent:true
+aterm*shading:60
+aterm*fading:80
+aterm*background: #343434
+aterm*foreground: #fffff0
+aterm*scrollBar:true
+aterm*scrollBar_right:true
+aterm*transpscrollbar:true
+aterm*saveLines:100
+aterm*font:-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*
+aterm*boldFont:-*-terminus-bold-r-normal-*-14-*-*-*-*-*-*-*
+
+!----------------------------------------------------------------------
+! Urxvt
+!----------------------------------------------------------------------
+
+urxvt*depth: 24
+urxvt*background: #343434
+urxvt*foreground: #fffff0
+urxvt*transparent: true
+urxvt*shading: 90
+urxvt*fading: 0
+urxvt*scrollBar: false
+urxvt*internalBorder: 14
+
+urxvt*font:xft:inconsolata:pixelsize=12
+urxvt*boldFont:xft:inconsolata:bold:pixelsize=12
+!urxvt*font:xft:envy code r:medium:size=9.25
+!urxvt*boldFont:xft:envy code r:medium:size=9.25
+!urxvt*font:     -*-dina-medium-r-*-*-*-80-*-*-*-*-*-*
+!urxvt*boldFont: -*-dina-bold-r-*-*-*-80-*-*-*-*-*-*
+!urxvt*font:     -*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*
+!urxvt*boldFont: -*-terminus-bold-r-*-*-14-*-*-*-*-*-*-*
+!urxvt*font:xft:bitstream vera sans mono:size=8
+!urxvt*boldFont:xft:bitstream vera sans mono:size=8
+
+!----------------------------------------------------------------------
+! XTerm
+!----------------------------------------------------------------------
+
+xterm*geometry: 80x25
+xterm*internalBorder: 10
+xterm*faceName: terminusbold:pixelsize=12
+xterm*utf8: 2
+xterm*eightBitInput: true
+xterm*saveLines: 512
+xterm*scrollTtyKeypress: true
+xterm*scrollTtyOutput: false
+xterm*scrollBar: false
+xterm*rightScrollBar: true
+xterm*jumpScroll: true
+xterm*multiScroll: true
+xterm*toolBar: false
+!XTerm*underLine: on
+xterm*dynamicColors: true
+XTerm*colorMode: on
+XTerm*colorBD: lightyellow
+!XTerm*colorBDMode: off
+XTerm*colorUL: yellow
+XTerm*colorULMode: on
+XTerm*highlightSelection: true
+XTerm*foreground: #696969
+XTerm*background: #fffef6
+XTerm*color0: #363636
+XTerm*color8: #424242
+XTerm*color1: #C37561
+XTerm*color9:  #D19485
+XTerm*color2: #A0A57E
+XTerm*color10: #7f8264
+XTerm*color3: #b58b62
+XTerm*color11: #DEBC9C
+XTerm*color4: #1d2b41
+XTerm*color12: #98A1B9
+XTerm*color5: #AB716D
+XTerm*color13: #b4d2c8
+XTerm*color6: #98B9B1
+XTerm*color14: #769293
+XTerm*color7: #9ba0a7
+XTerm*color15: #6e7383
+
+!----------------------------------------------------------------------
+! YeahConsole
+!----------------------------------------------------------------------
+
+yeahconsole*term: urxvt
+yeahconsole*xOffset: 1
+yeahconsole*consoleHeight: 32
+yeahconsole*screenWidth: 1278
+yeahconsole*aniDelay: 35
+yeahconsole*stepSize: 1
+yeahconsole*handleWidth: 1
+yeahconsole*handleColor: #e6d6bf
+yeahconsole*toggleKey: None+F12
+!yeahconsole*keyFull: Alt+F11
+yeahconsole*cursorBlink: false
+yeahconsole*font: xft:inconsolata:bold:pixelsize=12
+yeahconsole*scrollBar: false
+yeahconsole*saveLines: 10000
+yeahconsole*transparent: true
+yeahconsole*shading: 70
+yeahconsole*fading: 30
+yeahconsole*inheritPixmap: True
+yeahconsole*background: #343434
+yeahconsole*foreground: #fffff0
+
+!----------------------------------------------------------------------
+! Xft settings
+!----------------------------------------------------------------------
+
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+
+!----------------------------------------------------------------------
+! Xscreensaver
+!----------------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-dina-bold-r-*-*-*-80-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-dina-medium-r-*-*-*-80-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-dina-medium-r-*-*-*-80-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-dina-medium-r-*-*-*-80-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-dina-bold-r-*-*-*-80-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-dina-medium-r-*-*-*-80-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-dina-bold-r-*-*-*-80-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #ffffff
+xscreensaver.Dialog.background:         #111111
+xscreensaver.Dialog.topShadowColor:     #111111
+xscreensaver.Dialog.bottomShadowColor:  #111111
+xscreensaver.Dialog.Button.foreground:  #666666
+xscreensaver.Dialog.Button.background:  #ffffff
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #666666
+xscreensaver.Dialog.text.background:    #ffffff
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        20
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #ff0000
+xscreensaver.passwd.thermometer.background:  #000000
+xscreensaver.passwd.thermometer.width:       8
+!datestamp format--see the strftime(3) manual page for details
+xscreensaver.dateFormat:    %A, %d. %B %Y @ %H:%M %Z
+
+!----------------------------------------------------------------------
+! Xfontsel
+!----------------------------------------------------------------------
+
+XFontSel*menu*showUnselectable:       false
+XFontSel*sampleText.background:      rgb:FF/FA/FA
+XFontSel*MenuButton.shadowWidth:          0
+XFontsel*Toggle*ToggleStyle:          check
+XFontsel*MenuButton*Justify:           left
+XFontsel*MenuButton*MenuButtonStyle: selecta
+xfontsel*Font: -artwiz-snap.de-*-*-*-*-*-*-*-*-*-*-*-*
+xfontsel.pane.commandBox.quitButton.background:           ButtonBG
+xfontsel.pane.commandBox.quitButton.foreground:           ButtonFG
+xfontsel.pane.commandBox.ownButton.background:            #CD8500
+xfontsel.pane.commandBox.ownButton.foreground:            ButtonFG
+xfontsel.pane.commandBox.countLabel.background:           rgb:FF/FF/F0
+xfontsel.pane.viewPort.sampleText.background:             rgb:FF/FF/F0
+xfontsel.pane.viewPort.sampleText.foreground:             rgb:00/00/00
+xfontsel.pane.fieldBox.field0.background:  ButtonBG
+xfontsel.pane.fieldBox.field0.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field1.background:  ButtonBG
+xfontsel.pane.fieldBox.field1.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field2.background:  ButtonBG
+xfontsel.pane.fieldBox.field2.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field3.background:  ButtonBG
+xfontsel.pane.fieldBox.field3.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field4.background:  ButtonBG
+xfontsel.pane.fieldBox.field4.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field5.background:  ButtonBG
+xfontsel.pane.fieldBox.field5.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field6.background:  ButtonBG
+xfontsel.pane.fieldBox.field6.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field7.background:  ButtonBG
+xfontsel.pane.fieldBox.field7.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field8.background:  ButtonBG
+xfontsel.pane.fieldBox.field8.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field9.background:  ButtonBG
+xfontsel.pane.fieldBox.field9.foreground:  ButtonFG
+xfontsel.pane.fieldBox.field10.background: ButtonBG
+xfontsel.pane.fieldBox.field10.foreground: ButtonFG
+xfontsel.pane.fieldBox.field11.background: ButtonBG
+xfontsel.pane.fieldBox.field11.foreground: ButtonFG
+xfontsel.pane.fieldBox.field12.background: ButtonBG
+xfontsel.pane.fieldBox.field12.foreground: ButtonFG
+xfontsel.pane.fieldBox.field13.background: ButtonBG
+xfontsel.pane.fieldBox.field13.foreground: ButtonFG
+xfontsel.pane.fieldBox*foreground:         #000000
+xfontsel.pane.fieldBox.MenuButton.borderWidth:   1
+!xfontsel.pane.fieldBox.MenuButton.internalHeight:1
+!xfontsel.pane.fieldBox.MenuButton.internalWidth: 2
+xfontsel.pane.fieldBox.MenuButton.shapeStyle:    roundedRectangle
+xfontsel.pane.fieldBox.MenuButton.cornerRoundPercent: 10
+
+!----------------------------------------------------------------------
+! Xmessage
+!----------------------------------------------------------------------
+
+Xmessage*font:                  -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+Xmessage*background:            #3F3F3F
+Xmessage*foreground:            #F0DFAF
+Xmessage*form.*.shapeStyle:     rectangle
+Xmessage*Scrollbar.width:       1
+Xmessage*Scrollbar.borderWidth: 0
+!Xmessage.form.message.Scroll:  WhenNeeded
+Xmessage*Buttons:               Quit
+Xmessage*defaultButton:         Quit
+!Xmessage*geometry:             +20+20
+
+!----------------------------------------------------------------------
+! Xclipboard
+!----------------------------------------------------------------------
+
+xclipboard.geometry:	  287x195+993+15
+XClipboard*international: true
+XClipboard*font:          -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-2
+XClipboard*borderColor:	  #3F3F3F
+XClipboard*cursorColor:	  Gray93
+XClipboard*Foreground:    #F0DFAF
+XClipboard*Background:    #3F3F3F
+XClipboard*form.*.shapeStyle: rectangle

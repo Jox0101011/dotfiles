@@ -1,0 +1,6 @@
+#!/bin/sh
+sed -i 's:"/home/thierry/.colours/.*":"/home/thierry/.colours/zenburn":' /home/thierry/.Xresources
+sed -i 's: <):):' /home/thierry/.fluxbox/menu-colours
+sed -i 's:zenburn):zenburn <):' /home/thierry/.fluxbox/menu-colours
+xrdb -merge /home/thierry/.Xresources
+exit

@@ -1,0 +1,6 @@
+#!/bin/bash
+var=$(/bin/date "+[begin] (%A %d.%-m.%Y)")
+/bin/sed -i '/begin/ {
+  c \
+'"$var"'
+}' $1

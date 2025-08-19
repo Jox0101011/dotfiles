@@ -1,0 +1,12 @@
+[app] (name=fbrun)
+  [Position]	(CENTER)	{0 0}
+  [Layer]	{2}
+[end]
+[app] (name=kitty) (class=kitty)
+  [Maximized]	{yes}
+  [Close]	{yes}
+[end]
+[app] (name=Navigator) (class=firefox-nightly) (role=browser)
+  [Dimensions]	{83% 94%}
+  [Maximized]	{yes}
+[end]

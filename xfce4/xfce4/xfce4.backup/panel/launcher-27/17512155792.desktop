@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name[pt_BR]=Gerenciador de tarefas
+Name[pt]=Gestor de Tarefas
+Name=Task Manager
+Comment[pt_BR]=Aplicativo fácil de usar para monitorar os recursos do sistema
+Comment[pt]=Aplicação fácil de usar para monitorizar os recursos do sistema
+Comment=Easy to use application to monitor system resources
+GenericName[pt_BR]=Gerenciador de tarefas
+GenericName[pt]=Gestor de Tarefas
+GenericName=Task Manager
+Exec=xfce4-taskmanager
+Icon=org.xfce.taskmanager
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=System;Utility;
+Keywords[pt_BR]=monitor;recursos;sistema;tarefa;desempenho;
+Keywords[pt]=monitor;recursos;sistema;tarefa;desempenho;
+Keywords=monitor;resources;system;task;performance;
+X-XFCE-Source=file:///usr/share/applications/xfce4-taskmanager.desktop

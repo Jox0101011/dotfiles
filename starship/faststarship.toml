@@ -1,0 +1,274 @@
+## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
+## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
+## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░by Jox0101011
+## CROSS-SHELL PROMPT
+##
+## Jox0101011 starship configuration
+## The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+
+format = """
+
+$directory$time $all
+$character$right_format
+"""
+right_format = """$git_branch$git_status$cmd_duration$username$hostname"""
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[line_break]
+disabled = true
+
+[username]
+style_user = 'blue'
+show_always = true
+
+[os]
+format = "[](fg:blue bg:none)[$symbol](fg:black bg:blue)($style)[](fg:blue bg:none)"
+style = "bold blue"
+disabled = true
+[netns]
+disabled = true
+[os.symbols]
+Alpine = " "
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Garuda = "󰛓 "
+Gentoo = " "
+Kali = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+NixOS = " "
+OpenBSD = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+Ubuntu = " "
+Windows = " "
+Android = " "
+Mint = " "
+SUSE = " "
+Nobara = " "
+Unknown = " "
+
+[character]
+success_symbol = " [](bright-green)"
+error_symbol = " [ ](red)"
+vicmd_symbol = "[  ](yellow)"
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold blue) "
+disabled = false
+
+[cmd_duration]
+min_time = 1
+format = "[](fg:black bg:none)[$duration]($style)[](fg:black bg:black)[](fg:purple bg:black)[](fg:black bg:purple)[](fg:purple bg:none) "
+disabled = false
+style = "fg:white bg:black"
+
+[time]
+format = "[](fg:bright-blue bg:none)[ ](fg:black bg:bright-blue)[$time](fg:black bg:bright-blue)[](fg:bright-blue bg:none)"
+disabled = false
+style = "fg: white bg:black"
+
+[directory]
+format = "[](fg:black bg:none)[$path]($style)[](fg:black bg:black)[](fg:blue bg:black)[](fg:black bg:blue)[](fg:blue bg:none)"
+style = "fg:white bg:black"
+truncation_length = 3
+truncate_to_repo=false
+
+[git_branch]
+format = "[](fg:black bg:none)[$branch]($style)[](fg:black bg:black)[](fg:green bg:black)[ ](fg:black bg:green)[](fg:green bg:none) "
+style = "fg:white bg:black"
+
+[git_status]
+format="[](fg:black bg:none)[$all_status$ahead_behind]($style)[](fg:black bg:black)[](fg:red bg:black)[ ](fg:black bg:red)[](fg:red bg:none) "
+style = "fg:white bg:black"
+conflicted = "="
+ahead =	"⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count} ⇣${behind_count} "
+up_to_date = "󰄬 "
+untracked = "?${count} "
+stashed = "󰐃 "
+modified = "! ${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "-${count} "
+
+[git_commit]
+format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "green"
+
+[git_state]
+rebase = "REBASING"
+merge =	"MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style =	"yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[battery]
+disabled = true
+#[nodejs]
+#symbol = " "
+
+#[typescript]
+#symbol = " "
+
+#[javascript]
+#symbol = " "
+
+#[python]
+#symbol = " "
+
+#[rust]
+#symbol = " "
+
+#[golang]
+#symbol = " "
+
+#[c]
+#symbol = " "
+
+#[cpp]
+#symbol = " "
+
+#[java]
+#symbol = " "
+
+#[ruby]
+#symbol = " "
+
+#[php]
+#symbol = " "
+
+#[swift]
+#symbol = "ﯣ "
+
+#[kotlin]
+#symbol = " "
+
+#[lua]
+#symbol = " "
+
+#[perl]
+#symbol = " "
+
+#[elixir]
+#symbol = " "
+
+#[haskell]
+#symbol = " "
+
+#[scala]
+#symbol = " "
+
+#[julia]
+#symbol = " "
+
+#[docker_context]
+#symbol = " "
+
+[nodejs]
+symbol = " "
+style = "bold bright-green"
+format = "via [$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[rust]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[c]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[cpp]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[java]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[ruby]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[php]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[swift]
+symbol = "ﯣ "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[kotlin]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[lua]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[perl]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[elixir]
+symbol = " "
+style = "bold purple"
+format = "via [$symbol($version )]($style)"
+
+[haskell]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[scala]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[julia]
+symbol = " "
+style = "bold purple"
+format = "via [$symbol($version )]($style)"
+
+[docker_context]
+symbol = " "
+style = "bold blue"
+format = "[$symbol$context]($style)"
+
+[package]
+symbol = "+ "
+style = "bold orange"
+format = "is [$symbol$version]($style)"
+

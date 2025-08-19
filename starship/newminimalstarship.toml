@@ -1,0 +1,207 @@
+format = """
+
+  $directory$time $all$git_branch$git_status$cmd_duration$character
+"""
+right_format = """$username@$hostname$os"""
+
+add_newline = false
+    
+[line_break]
+disabled = true
+
+[username]
+style_user = 'blue'
+show_always = true
+
+[os]
+format = "[$symbol]($style)"
+style = "bold blue"
+disabled = true
+
+[netns]
+disabled = true
+
+[os.symbols]
+Alpine = " "
+Arch = " "
+Debian = " "
+EndeavourOS = " "
+Fedora = " "
+Garuda = "󰛓 "
+Gentoo = " "
+Kali = " "
+Linux = " "
+Macos = " "
+Manjaro = " "
+NixOS = " "
+OpenBSD = " "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+Ubuntu = " "
+Windows = " "
+Android = " "
+Mint = " "
+SUSE = " "
+Nobara = " "
+Unknown = " "
+
+[character]
+success_symbol = " [✔ ](bright-green)"
+error_symbol = " [✘ ](red)"
+vicmd_symbol = "[ ](yellow)"
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold blue) "
+disabled = false
+
+[cmd_duration]
+min_time = 1
+format = "[$duration]($style) "
+style = "fg:white"
+
+[time]
+format = "[$time](fg:bright-blue)"
+style = "fg:white"
+
+[directory]
+format = "[ ](cyan) [$path]($style)"
+style = "fg:white"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = "[$branch]($style) "
+style = "fg:white"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "fg:white"
+conflicted = "="
+ahead =	"⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count} ⇣${behind_count} "
+up_to_date = "✔ "
+untracked = "?${count} "
+stashed = "⚑ "
+modified = "! ${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "-${count} "
+
+[git_commit]
+format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
+style = "green"
+
+[git_state]
+rebase = "REBASING"
+merge =	"MERGING"
+revert = "REVERTING"
+cherry_pick = "CHERRY-PICKING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style =	"yellow"
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+
+[battery]
+disabled = true
+
+# langs
+
+[nodejs]
+symbol = " "
+style = "bold bright-green"
+format = "via [$symbol($version )]($style)"
+
+[python]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[rust]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[golang]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[c]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[cpp]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[java]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[ruby]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[php]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[swift]
+symbol = "ﯣ "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[kotlin]
+symbol = " "
+style = "bold yellow"
+format = "via [$symbol($version )]($style)"
+
+[lua]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[perl]
+symbol = " "
+style = "bold blue"
+format = "via [$symbol($version )]($style)"
+
+[elixir]
+symbol = " "
+style = "bold purple"
+format = "via [$symbol($version )]($style)"
+
+[haskell]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[scala]
+symbol = " "
+style = "bold red"
+format = "via [$symbol($version )]($style)"
+
+[julia]
+symbol = " "
+style = "bold purple"
+format = "via [$symbol($version )]($style)"
+
+[docker_context]
+symbol = " "
+style = "bold blue"
+format = "[$symbol$context]($style)"
+
+[package]
+symbol = "+ "
+style = "bold orange"
+format = "is [$symbol$version]($style)"
+
