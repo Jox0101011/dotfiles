@@ -1,11 +1,16 @@
-"===================== 
+"=====================
 "|VIM Plugins Hackzer|
-"===================== 
-call plug#begin("~/.vim/plugged")   
+"=====================
+call plug#begin("~/.vim/plugged")
+Plug 'vim-scripts/scratch.vim'
 
-Plug 'preservim/nerdtree' 
+Plug 'alok/notational-fzf-vim'
 
-Plug 'tpope/vim-fugitive' 
+Plug 'tpope/vim-commentary'
+
+Plug 'preservim/nerdtree'
+
+Plug 'tpope/vim-fugitive'
 
 Plug 'junegunn/goyo.vim'
 
@@ -17,7 +22,7 @@ Plug 'terroo/vim-auto-markdown'
 
 Plug 'tomasiser/vim-code-dark'
 
-Plug 'jiangmiao/auto-pairs'  
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'junegunn/fzf.vim'
 
@@ -49,9 +54,11 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'ervandew/supertab'
 
-Plug 'luochen1990/rainbow'
+Plug 'keith/investigate.vim'
 
-call plug#end()     
+Plug 'chiel92/vim-autoformat'
+
+call plug#end()
 
 "==----------------==
 "|VIM .vimrc Hackzer|
@@ -61,10 +68,9 @@ colorscheme happy_hacking
 
 augroup FontScheme
     autocmd!
-autocmd ColorScheme * highlight Comment cterm=italic
-autocmd ColorScheme * highlight Keyword cterm=italic
-autocmd ColorScheme * highlight Function cterm=bold
-autocmd ColorScheme * highlight MatchParen ctermfg=cyan ctermbg=NONE
+    autocmd ColorScheme * highlight Comment cterm=italic
+    autocmd ColorScheme * highlight Keyword cterm=italic
+    autocmd ColorScheme * highlight Function cterm=bold
 augroup END
 
 set foldmethod=marker
@@ -73,8 +79,6 @@ set title
 set termguicolors
 set t_Co=256
 set ttyfast
-set lazyredraw
-set redrawtime=50
 set nocompatible
 set number
 set relativenumber
@@ -84,7 +88,6 @@ set expandtab
 set autoindent
 set smartindent
 set wrap
-set mouse=a
 syntax on
 set clipboard=unnamedplus
 set hlsearch
@@ -98,13 +101,14 @@ set wildmenu
 set showtabline=2
 set confirm
 let g:loaded_matchparen = 1
+let g:nv_search_paths = ['~/notes']
 let g:lightline = {
             \ 'colorscheme': 'deus',
             \ 'active': {
             \ 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified'  ] ],
             \
             \ 'right': [ [ 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileenconding', 'filetype' ] ]
-            \ }, 
+            \ },
             \ 'tabline': {
             \   'left': [ ['buffers'] ],
             \   'right': [ ['close'] ]
@@ -149,7 +153,7 @@ nmap <C-b> :Buffers<CR>
 nmap <C-t> :terminal<CR>
 
 nmap <leader>gs :G<CR>
- 
+
 noremap <space> :nohlsearch<CR>
 
 set updatetime=100

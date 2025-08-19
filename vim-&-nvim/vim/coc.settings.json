@@ -1,3 +1,11 @@
+{ 
+    "tsserver.enable": false,
+    "eslint.enable": false,
+    "json.enable": false,
+    "css.enable": false,
+    "html.enable": false
+},
+
 {
     "languageserver": {
         "python": {
@@ -15,7 +23,7 @@
                 "filestype": ["ruby"]
             },
             "vim": {
-                "command" : "vim-language-server",
+                "command": "vim-language-server",
                 "args": ["--stdio"],
                 "filestype": ["vim"]
             },
@@ -24,5 +32,4 @@
                 "args": ["start"],
                 "filestype": ["sh"]
             }
-        }
-    }
+}
