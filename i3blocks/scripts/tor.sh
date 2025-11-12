@@ -14,4 +14,4 @@ if ss -ltnp 2>/dev/null | grep -q ':9050'; then
   exit
 fi
 
-echo "no tor"
+echo ""

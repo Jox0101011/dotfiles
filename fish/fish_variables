@@ -7,8 +7,8 @@ SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/hazer/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/hazer/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/hazer\x24
-SETUVAR --export __ABBR_TIPS_KEYS:a__fish_vi_dec\x1ea__fish_vi_inc\x1ea__la\x1ea__ll\x1ea__lla\x1ea__ls\x1ea__zi
-SETUVAR --export __ABBR_TIPS_VALUES:fish_vi_inc_dec\x20dec\x1efish_vi_inc_dec\x20inc\x1els\x20\x2da\x1els\x20\x2dlh\x1els\x20\x2dlha\x1eeza\x1e__zoxide_zi
+SETUVAR --export __ABBR_TIPS_KEYS:a__fish_vi_dec\x1ea__fish_vi_inc\x1ea__la\x1ea__ll\x1ea__ls\x1ea__zi
+SETUVAR --export __ABBR_TIPS_VALUES:fish_vi_inc_dec\x20dec\x1efish_vi_inc_dec\x20inc\x1els\x20\x2da\x1els\x20\x2dlh\x1eeza\x1e__zoxide_zi
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3800
