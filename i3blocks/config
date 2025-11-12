@@ -1,45 +1,45 @@
-separator=false
+separator=true
 markup=pango
 interval=5
+
+[process]
+command=~/.config/i3blocks/scripts/process.sh
+interval=3
+label=
+color=#8ec07c
 
 [media]
 command=~/.config/i3blocks/scripts/media.sh
 interval=2
-label=|  
+label=
 color=#83a598
 
 [network]
 command=~/.config/i3blocks/scripts/network.sh
 interval=5
-label=|  󰤨    
+label=
 color=#d3869b
 
 [vpn]
 command=~/.config/i3blocks/scripts/vpn.sh
 interval=5
-label=|  󰐧   
+label=
 color=#8ec07c
 
 [tor]
 command=~/.config/i3blocks/scripts/tor.sh
 interval=30
-label=|  󰚩   
+label=
 color=#b16286
 
 [battery]
 command=~/.config/i3blocks/scripts/battery.sh
 interval=30
-label=|  
+label=
 color=#fabd2f
 
 [time]
 command=date '+%a %d %b %H:%M'
 interval=60
-label=|  
+label= 
 color=#ebdbb2
-
-[pwned]
-command=~/.config/i3blocks/scripts/pwned.sh
-interval=10
-label=|  
-color=#750000

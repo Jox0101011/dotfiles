@@ -1,3 +1,4 @@
+libutempter
 7zip
 a52dec
 aalib
@@ -55,7 +56,6 @@ batctl
 bc
 bcg729
 bettercap
-bibata-rainbow-cursor-theme
 bind
 binutils
 binwalk
@@ -130,7 +130,6 @@ crunch
 cryptsetup
 cupp
 curl
-cwm-debug
 cython
 darkstat
 dav1d
@@ -160,7 +159,6 @@ dnssec-anchors
 docbook-xml
 docbook-xsl
 docker
-doom_ascii-debug
 dotconf
 double-conversion
 dpdk
@@ -201,7 +199,6 @@ faad2
 fakeroot
 falcosecurity-libs
 fastfetch
-fbterm-debug
 fcrackzip
 fd
 feh
@@ -215,8 +212,6 @@ filesystem
 findomain
 findutils
 firefox
-firefox-nightly-bin
-firefox-nightly-bin-debug
 firejail
 fish
 flac
@@ -224,7 +219,6 @@ flameshot
 flatpak
 flawfinder
 flex
-fluent-gtk-theme
 fluxbox
 fmt
 fontconfig
@@ -294,8 +288,6 @@ go
 gobject-introspection-runtime
 gobuster
 goocanvas
-google-chrome
-google-earth-pro
 gperf
 gperftools
 gpgme
@@ -335,7 +327,6 @@ gtk-vnc
 gtk2
 gtk3
 gtk4
-gtkmm
 gtkmm-4.0
 gtkmm3
 gtksourceview3
@@ -348,7 +339,6 @@ gupnp-igd
 gvfs
 gzip
 hackrf
-hakuneko-desktop-nightly-debug
 harfbuzz
 harfbuzz-icu
 hashcat
@@ -430,7 +420,6 @@ iaito
 iana-etc
 icu
 ijs
-imagej
 imagemagick
 imake
 imath
@@ -524,7 +513,6 @@ kxmlgui
 l-smash
 lame
 lapack
-layan-gtk-theme-git
 lazygit
 lcms2
 ldb
@@ -542,7 +530,6 @@ libaec
 libaemu
 libaio
 libao
-libappindicator-gtk3
 libarchive
 libass
 libassuan
@@ -960,8 +947,6 @@ mtr
 mugshot
 mujs
 multimon-ng
-musikcube-bin
-musikcube-bin-debug
 mypaint-brushes1
 nasm
 nbtscan
@@ -972,7 +957,6 @@ ndctl
 neofetch
 neon
 neovim
-neovim-remote
 net-snmp
 net-tools
 netpbm
@@ -985,7 +969,6 @@ ngrep
 ngspice
 nikto
 ninja
-nitrogen
 nlohmann-json
 nm-connection-editor
 nmap
@@ -998,18 +981,14 @@ npth
 nspr
 nss
 ntfs-3g
-nuclear-player-bin-debug
 numactl
 nvm
 nyancat
-nyaovim-debug
 obs-studio
 obsidian
 ocl-icd
 okular
 onefetch
-oneko
-oneko-debug
 onetbb
 oniguruma
 onionshare
@@ -1099,7 +1078,6 @@ phonon-qt6-vlc
 php
 picom
 pinentry
-pipes.sh
 pipewire
 pipewire-alsa
 pipewire-audio
@@ -1172,8 +1150,6 @@ python-chardet
 python-charset-normalizer
 python-click
 python-click-plugins
-python-clickgen1
-python-clickgen1-debug
 python-colorama
 python-colored-traceback
 python-constantly
@@ -1195,7 +1171,6 @@ python-emoji
 python-engineio
 python-evdev
 python-eventlet
-python-fast-colorthief
 python-filebytes
 python-filelock
 python-flask
@@ -1477,8 +1452,6 @@ redland
 rfdump
 rhash
 ripgrep
-riseup-vpn
-riseup-vpn-debug
 ristretto
 rizin
 rkhunter
@@ -1516,7 +1489,6 @@ scapy
 scour
 scrapy
 sddm
-sddm-theme-sugar-candy-git
 sdl12-compat
 sdl2-compat
 sdl2_image
@@ -1526,7 +1498,6 @@ sed
 semver
 serd
 serf
-session-desktop-appimage
 set
 shaderc
 shadow
@@ -1596,7 +1567,6 @@ subbrute
 subversion
 sudo
 suitesparse
-supermicro-update-manager-debug
 suricata
 svt-av1
 swaks
@@ -1621,8 +1591,6 @@ terminus-font
 termshark
 testdisk
 testssl.sh
-tetris
-tetris-debug
 tevent
 texinfo
 tgpt
@@ -1869,8 +1837,6 @@ yay
 yay-debug
 yazi
 youtube-music
-youtube-tui
-youtube-tui-debug
 ytfzf
 yyjson
 z3

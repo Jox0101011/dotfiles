@@ -1,11 +1,11 @@
 call plug#begin('~/.vim/plugged')
   Plug 'mengelbrecht/lightline-bufferline'
-  Plug 'c9s/perlomni.vim'
+"  Plug 'c9s/perlomni.vim'
   Plug 'osyo-manga/vim-over'
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/sudo.vim'
   Plug 'itchyny/lightline.vim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'preservim/nerdtree'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } 
   Plug 'junegunn/fzf.vim'
@@ -15,15 +15,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'airblade/vim-gitgutter'          
   Plug 'jiangmiao/auto-pairs' 
   Plug 'preservim/tagbar'
-  Plug 'dag/vim-fish'
-  Plug 'vim-perl/vim-perl'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'w0rp/ale'
+"  Plug 'dag/vim-fish'
+"  Plug 'vim-perl/vim-perl'
+"  Plug 'sheerun/vim-polyglot'
+"  Plug 'w0rp/ale'
   Plug 'majutsushi/tagbar'
   Plug 'ludovicchabant/vim-gutentags'     
   Plug 'mhinz/vim-startify'
   Plug 'ryanoasis/vim-devicons'
   Plug 'Stoozy/vimcord'
+  Plug 'vim-scripts/taglist.vim'
 call plug#end()
 
 if &shell =~# 'fish$'
@@ -144,7 +145,7 @@ let g:lightline = {
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
       \   'buffers': 'LightlineBuffers',
-      \   'ale': 'LightlineALE',
+     "\   'ale': 'LightlineALE',
       \   'gitbranch': 'LightlineGitBranch'
       \ }
       \ }
@@ -201,7 +202,7 @@ endfunction
 let g:lightline.component_function.clock = 'LightlineClock'
 
 let g:lightline.active.right = [
-      \ ['clock'], ['ale'], ['lineinfo'], ['percent'], ['filetype']
+      \ ['clock'], ['lineinfo'], ['percent'], ['filetype']
       \ ]
 
 set noshowmode

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ICON_PLAY=" "
+ICON_PLAY=" "
 ICON_PAUSE=" "
 ICON_MUSIC=" "
 MAXLEN=25
@@ -28,11 +28,11 @@ scroll_text() {
     ((pos >= len)) && pos=0
     echo "$pos" > "$pos_file"
 
-    echo "${text:pos:MAXLEN}..."
+    echo "${text:pos:MAXLEN}"
 }
 
 menu_control() {
-    CHOICE=$(printf "Play/Pause\nNext\nPrevious\nCopy Song\nOpen Spotify\nClose Spotify" | dmenu_run -i -b -p "Media Control")
+    CHOICE=$(echo -e "Play/Pause\nNext\nPrevious\nCopy Song\nOpen Spotify\nClose Spotify" | dmenu_run -i -b -p "Media Control")
     case "$CHOICE" in
         "Play/Pause") playerctl play-pause ;;
         "Next") playerctl next ;;
@@ -52,7 +52,7 @@ get_display() {
     status=$(get_status)
 
     if [[ "$status" == "Stopped" ]]; then
-        echo "$ICON_MUSIC  No music"
+        echo ""
         return
     fi
 
@@ -72,4 +72,3 @@ case $BLOCK_BUTTON in
 esac
 
 get_display
-

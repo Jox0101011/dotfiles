@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-stats_riseup=$(pgrep "riseup-vpn" || echo "no vpn")
+stats_riseup=$(pgrep "riseup-vpn")
 
 if [ -n "$stats_riseup" ]; then
-    echo "riseup on"
+    echo "vpn on"
 else
-    echo "no vpn"
+    echo ""
 fi
