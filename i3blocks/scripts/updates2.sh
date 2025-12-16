@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Conta atualizações pacman (checkupdates) e AUR (paru -Qua)
-# Requer checkupdates (pacman-contrib) e paru no PATH; fornece fallbacks
 
 pacman_updates=0
 aur_updates=0

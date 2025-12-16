@@ -1,6 +1,15 @@
+"       .__                                      _____
+"___  __|__|  _____        ____   ____    ____ _/ ____\
+"\  \/ /|  | /     \     _/ ___\ /  _ \  /    \\   __\
+" \   / |  ||  Y Y  \    \  \___(  <_> )|   |  \|  |
+"  \_/  |__||__|_|  /     \___  >\____/ |___|  /|__|
+"                 \/          \/             \/ by hzr
+
 call plug#begin('~/.vim/plugged')
   Plug 'mengelbrecht/lightline-bufferline'
+  Plug 'honza/vim-snippets'
 "  Plug 'c9s/perlomni.vim'
+  Plug 'vim-pandoc/vim-pandoc'
   Plug 'osyo-manga/vim-over'
   Plug 'morhetz/gruvbox'
   Plug 'vim-scripts/sudo.vim'
@@ -19,7 +28,6 @@ call plug#begin('~/.vim/plugged')
 "  Plug 'vim-perl/vim-perl'
 "  Plug 'sheerun/vim-polyglot'
 "  Plug 'w0rp/ale'
-  Plug 'majutsushi/tagbar'
   Plug 'ludovicchabant/vim-gutentags'     
   Plug 'mhinz/vim-startify'
   Plug 'ryanoasis/vim-devicons'
@@ -28,7 +36,7 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 if &shell =~# 'fish$'
-    set shell=sh
+    set shell=fish
 endif
 
 syntax on
@@ -128,10 +136,10 @@ let g:lightline = {
       \   ],
       \   'right': [
       \     [ 'clock' ],
-      \     [ 'ale' ],
+     "\     [ 'ale' ],
       \     [ 'lineinfo' ],
       \     [ 'percent' ],
-      \     [ 'filetype' ]
+      \     [ 'fileicon' ]
       \   ]
       \ },
       \ 'inactive': {
@@ -153,7 +161,8 @@ let g:lightline = {
 function! LightlineFiletype() abort
   let l:icons = {
         \ 'python': ' ',
-        \ 'sh': '',
+        \ 'sh': ' ',
+        \ 'pdf': ' ', 
         \ 'vim': ' ',
         \ 'c': ' ',
         \ 'cpp': ' ',
@@ -169,8 +178,11 @@ function! LightlineFiletype() abort
         \ 'go': ' ',
         \ 'php': ' ',
         \ 'tmux': ' ',
-        \ 'toml': '',
-        \ 'conf': ' '
+        \ 'toml': ' ',
+        \ 'conf': ' ',
+        \ 'kitty': ' ',
+        \ 'fish': ' ',
+        \ 'i3config': ' '
         \ }
   let l:ft = &filetype !=# '' ? &filetype : 'none'
   let l:icon = has_key(l:icons, l:ft) ? l:icons[l:ft] : ' '
@@ -214,7 +226,6 @@ augroup lightline_refresh
   autocmd BufAdd,BufDelete,BufEnter * call lightline#update()
 augroup END
 
-
 if has("termguicolors")
   set termguicolors
 endif
@@ -222,19 +233,9 @@ endif
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
-nnoremap <C-k> :NERDTreeToggle<CR>
+nnoremap <silent> tnt :NERDTreeToggle<CR>
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-inoremap <silent><expr> <C-Space> coc#refresh()
-
-nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+nnoremap <silent> tbt :TagbarToggle<CR> 
 
 set laststatus=2
 set statusline=%f\ %y\ %m%r%=%-14.(%l,%c%V%)\ %P

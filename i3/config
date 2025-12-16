@@ -1,25 +1,30 @@
-set $mod Mod4
+#      ,'''|,                           .|';
+# ''      ||                           ||
+# ||   '''||    .|'', .|''|, `||''|,  '||'
+# ||      ||    ||    ||  ||  ||  ||   ||
+#.||. '...|'    `|..' `|..|' .||  ||. .||.   by hzr
 
+set $mod Mod4
 font pango:monospace 8
 
-exec --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+exec --no-startup-id dex --autostart
+
 exec --no-startup-id dunst
-exec --no-startup-id feh --bg-scale $HOME/Imagens/wallpaper.png
 
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.png
 
-floating_modifier $mod
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86MonBrightnessDown exec sh -c 'brightnessctl set 5%- && notify-send "Brilho: $(brightnessctl get)"'
+bindsym XF86MonBrightnessUp   exec sh -c 'brightnessctl set 5%+ && notify-send "Brilho: $(brightnessctl get)"'
 
-tiling_drag modifier titlebar
 
 bindsym $mod+Return exec kitty
+
+floating_modifier $mod
 
 bindsym $mod+Shift+q kill
 
@@ -28,9 +33,9 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+ccedilla focus right
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 bindsym $mod+Shift+j move left
@@ -38,15 +43,13 @@ bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
 bindsym $mod+Shift+ccedilla move right
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
 bindsym $mod+h split h
-
 bindsym $mod+v split v
-
 bindsym $mod+f fullscreen toggle
 
 bindsym $mod+s layout stacking
@@ -54,9 +57,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+Shift+space floating toggle
-
 bindsym $mod+space focus mode_toggle
-
 bindsym $mod+a focus parent
 
 set $ws1 "1"
@@ -70,56 +71,54 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sair do i3?' -B 'Sim' 'i3-msg exit'"
 
 mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym ccedilla resize grow width 10 px or 10 ppt
+    bindsym j       resize shrink width 10 px
+    bindsym k       resize grow   height 10 px
+    bindsym l       resize shrink height 10 px
+    bindsym ccedilla resize grow  width  10 px
 
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Left  resize shrink width 10 px
+    bindsym Down  resize grow   height 10 px
+    bindsym Up    resize shrink height 10 px
+    bindsym Right resize grow   width 10 px
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-
-set $menu ~/.local/bin/dmenu_run_bottom
+set $menu /home/hazer/.local/scripts/dmenu_run_bottom
 bindsym $mod+d exec $menu
-bindsym $mod+Shift+d exec ~/.local/bin/dmenu-clipboard
-new_window pixel 0
-new_float normal
+bindsym $mod+p exec /home/hazer/.local/bin/i3blocks_exec
+
+default_border pixel 2
 hide_edge_borders smart
 
 set $bg-color #1d2021
@@ -129,32 +128,28 @@ set $inactive-text-color #a89984
 set $urgent-bg-color #cc241d
 set $accent-color #d79921
 
-client.focused          #5a524c #1d2021 #d4be98 #5a524c #5a524c
-client.focused_inactive #3c3836 #1d2021 #a89984 #3c3836 #3c3836
-client.unfocused        #32302f #1d2021 #928374 #32302f #32302f
-client.urgent           #ea6962 #1d2021 #ebdbb2 #ea6962 #ea6962
-client.placeholder      #1d2021 #1d2021 #d4be98 #1d2021 #1d2021
-
+client.focused          #5a524c #1d2021 #d4be98
+client.focused_inactive #3c3836 #1d2021 #a89984
+client.unfocused        #32302f #1d2021 #928374
+client.urgent           #ea6962 #1d2021 #ebdbb2
+client.placeholder      #1d2021 #1d2021 #d4be98
 client.background       #1d2021
 
-gaps inner 0 
-gaps outer 0 
+gaps inner 0
+gaps outer 0
 
-
-bar {
+ bar {
     status_command i3blocks
     position top
-    font pango:JetBrainsMono Nerd Font 10
+    font pango:BigBlueTermPlus Nerd Font 7
     separator_symbol "  "
-
     colors {
-        background #1d2021
-        statusline #d4be98
-        separator  #32302f
+        background #2f3a45
+        statusline #d8dee9
 
-        focused_workspace  #5a524c #5a524c #1d2021
-        active_workspace   #3c3836 3c3836 #1d2021
-        inactive_workspace #7c6f64 #7c6f64 #1d2021
-        urgent_workspace   #ea6962 #ea6962 #1d2021
+        focused_workspace #2f3a45 #81a1c1 #2f3a45
+        active_workspace #2fa3a45 #4c566a #2f3a45
+        inactive_workspace #4c566a #2fa3a45 #2f3a45
+        urgent_workspace #2fa3a45 #bf616a #2f3a45
     }
-}
+ }

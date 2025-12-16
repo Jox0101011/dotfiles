@@ -1,12 +1,17 @@
+#  __  ___  ___  __    __    __  _ _   ___
+# (  )(__ )(  ,)(  )  /  \  / _)( ) ) / __)
+#  )(  (_ \ ) ,\ )(__( () )( (_  )  \ \__ \
+# (__)(___/(___/(____)\__/  \__)(_)\_)(___/by hzr
+
 separator=true
 markup=pango
 interval=5
 
-[process]
-command=~/.config/i3blocks/scripts/process.sh
-interval=3
-label=
-color=#8ec07c
+#[process]
+#command=~/.config/i3blocks/scripts/process.sh
+#interval=3
+#label=
+#color=#8ec07c
 
 [media]
 command=~/.config/i3blocks/scripts/media.sh
