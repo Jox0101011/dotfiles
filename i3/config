@@ -21,7 +21,6 @@ bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86MonBrightnessDown exec sh -c 'brightnessctl set 5%- && notify-send "Brilho: $(brightnessctl get)"'
 bindsym XF86MonBrightnessUp   exec sh -c 'brightnessctl set 5%+ && notify-send "Brilho: $(brightnessctl get)"'
 
-
 bindsym $mod+Return exec kitty
 
 floating_modifier $mod
@@ -114,11 +113,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $menu /home/hazer/.local/scripts/dmenu_run_bottom
+set $menu /bin/dmenu_run -b
 bindsym $mod+d exec $menu
-bindsym $mod+p exec /home/hazer/.local/bin/i3blocks_exec
 
-default_border pixel 2
+default_border pixel 1
 hide_edge_borders smart
 
 set $bg-color #1d2021
@@ -128,11 +126,11 @@ set $inactive-text-color #a89984
 set $urgent-bg-color #cc241d
 set $accent-color #d79921
 
-client.focused          #5a524c #1d2021 #d4be98
-client.focused_inactive #3c3836 #1d2021 #a89984
-client.unfocused        #32302f #1d2021 #928374
-client.urgent           #ea6962 #1d2021 #ebdbb2
-client.placeholder      #1d2021 #1d2021 #d4be98
+client.focused          #00AAAA #000000 #FFFFFF
+client.focused_inactive #555555 #000000 #AAAAAA
+client.unfocused        #333333 #000000 #888888
+client.urgent           #AA0000 #000000 #FFFFFF
+client.placeholder      #000088 #000000 #FFFFFF
 client.background       #1d2021
 
 gaps inner 0
@@ -142,14 +140,14 @@ gaps outer 0
     status_command i3blocks
     position top
     font pango:BigBlueTermPlus Nerd Font 7
-    separator_symbol "  "
+    separator_symbol "::"
     colors {
-        background #2f3a45
-        statusline #d8dee9
+        background #000000
+        statusline #AAAAAA
 
-        focused_workspace #2f3a45 #81a1c1 #2f3a45
-        active_workspace #2fa3a45 #4c566a #2f3a45
-        inactive_workspace #4c566a #2fa3a45 #2f3a45
-        urgent_workspace #2fa3a45 #bf616a #2f3a45
+        focused_workspace #00AAAA #000000 #FFFFFF
+        active_workspace #555555 #000000 #AAAAAA
+        inactive_workspace #333333 #000000 #888888
+        urgent_workspace #AA0000 #000000 #FFFFFF
     }
  }

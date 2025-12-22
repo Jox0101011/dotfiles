@@ -1,16 +1,25 @@
-#!/usr/bin/env bash
+read prev_idle prev_total < <(
+    awk '/^cpu /{
+        idle=$5
+        total=0
+        for(i=2;i<=NF;i++) total+=$i
+        print idle, total
+    }' /proc/stat
+)
 
-if [ -r /proc/stat ]; then
-  read -r cpu a b c d e f g h < /proc/stat
-  prev_total=$((a+b+c+d+e+f+g+h))
-  prev_idle=$d
-  sleep 0.2
-  read -r cpu a b c d e f g h < /proc/stat
-  total=$((a+b+c+d+e+f+g+h))
-  idle=$d
-  usage=$((100*( (total-prev_total) - (idle-prev_idle) ) / (total-prev_total) ))
-  echo "${usage}%"
-else
-  echo "n/a"
-fi
+sleep 0.2
+
+read idle total < <(
+    awk '/^cpu /{
+        idle=$5
+        total=0
+        for(i=2;i<=NF;i++) total+=$i
+        print idle, total
+    }' /proc/stat
+)
+
+diff_total=$((total - prev_total))
+diff_idle=$((idle - prev_idle))
+
+(( diff_total > 0 )) && echo $((100 * (diff_total - diff_idle) / diff_total))"%"
 
