@@ -1,0 +1,52 @@
+#  __  ___  ___  __    __    __  _ _   ___
+# (  )(__ )(  ,)(  )  /  \  / _)( ) ) / __)
+#  )(  (_ \ ) ,\ )(__( () )( (_  )  \ \__ \
+# (__)(___/(___/(____)\__/  \__)(_)\_)(___/by hzr
+
+[global]
+color=#AAAAAA
+separator=true
+separator_block_width=10
+markup=pango
+
+[title]
+command=~/.config/i3blocks/scripts/window.sh
+interval=1
+label=
+color=#00aaaa
+
+[net]
+command=ip -o link show up | awk -F': ' '{print $2}' | paste -sd ',' -
+interval=60
+color=#00aa00
+
+[uptime]
+command=awk '{printf "%.1fd\n", $1/86400}' /proc/uptime
+interval=3600
+label=
+color=888888
+
+[memory]
+command=~/.config/i3blocks/scripts/memory.sh
+interval=10
+label=
+color=#aabacc
+
+[cpu]
+command=~/.config/i3blocks/scripts/cpu.sh
+interval=4
+label=
+color=#baccaa
+
+[battery]
+command=~/.config/i3blocks/scripts/battery.sh
+interval=30
+label=
+color=#00ff00
+urgent=#ff0000
+
+[time]
+command=date '+%H:%M'
+interval=60
+label=
+color=#ffffff
