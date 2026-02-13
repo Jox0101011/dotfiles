@@ -3,13 +3,13 @@
 </p>
 
 ---
-# EMPEROR dotfiles HAZER
+# Terminal Life - hzr Dotfiles
 
 ---
 
-- FASTFETCH CUSTOM with logo
-- PACKAGES with BlackArch & yay
+- ZSH
+- PACKAGES
 - KITTY
 - VIM
-- NEOVIM
+- TMUX
 - AND MORE!!
