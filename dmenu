@@ -1,0 +1,9 @@
+#!/bin/sh
+
+dmenu_run -b \
+    -fn "BigBlueTermPlus Nerd Font:size=7" \
+    -nb "#1d2021" \
+    -nf "#d5c4a1" \
+    -sb "#b16286" \
+    -sf "#1d2021" \
+    -p "x"

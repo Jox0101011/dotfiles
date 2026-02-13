@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 "  Plug 'sheerun/vim-polyglot'
 "  Plug 'w0rp/ale'
   Plug 'mhinz/vim-startify'
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
   Plug 'ryanoasis/vim-devicons'
   Plug 'Stoozy/vimcord'
 call plug#end()
@@ -232,9 +233,7 @@ endif
 
 nnoremap <Tab> :bnext <CR>
 
-nnoremap <silent> tntopen :NERDTreeToggle<CR>
-
-nnoremap <silent> tbtopen :TagbarToggle<CR> 
+nnoremap <silent> nerdopen :NERDTreeToggle<CR>
 
 set laststatus=2
 set statusline=%f\ %y\ %m%r%=%-14.(%l,%c%V%)\ %P

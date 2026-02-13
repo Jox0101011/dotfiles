@@ -8,7 +8,7 @@ all()
     cp $HOME/.config/i3blocks i3blocks -r && echo "[+] i3blocks config new update ready" || echo "Error: $?"
     cp $HOME/.config/htop htop -r 2>/dev/null && echo "[+] htop new upate ready" || echo "Error: $?"
     cp $HOME/.config/kitty kitty -r 2>/dev/null && echo "[+] kitty new update ready" || echo "Error: $?"
-    mkdir zsh 2>/dev/null; cp $HOME/.zsh* zsh/ -r 2>/dev/null && echo "[+] zsh config new update ready" || echo "Error: $?"
+    mkdir zsh 2>/dev/null; cp $HOME/.zshrc zsh/zshrc;cp $HOME/.zsh zsh/zsh -r 2>/dev/null && echo "[+] zsh config new update ready" || echo "Error: $?"
     cp $HOME/.links/ links -r 2>/dev/null && echo "[+] links config new update" || echo "Error: $?"
     cp $HOME/.config/dunst dunst -r 2>/dev/null && echo "[+] dunst config new update" || echo "Error: $?"
     cp $HOME/.local/bin/dmenu dmenu && echo "[*] dmenu script new update" || echo "Error: $?"
