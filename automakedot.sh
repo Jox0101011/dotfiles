@@ -1,7 +1,9 @@
+#!/usr/bin/bash
+
 all() 
 {
     echo -e "\e[1m[ALL]\e[0m"
-    rm -rf vim; cp $HOME/.vim vim -rf 2>/dev/null && echo "[+] vim new update ready" || echo "Error: $?"
+    rm -rf vim; mkdir vim; cp $HOME/.vim vim/vim -rf 2>/dev/null && echo "[+] vim new update ready" || echo "Error: $?"
     cp $HOME/.vimrc vim/vimrc 2>/dev/null && echo "[+] vim config new update ready" || echo "Error: $?"
     rm -rf tmux; cp $HOME/.tmux tmux -rf 2>/dev/null && echo "[+] tmux new update ready"|| echo "Error: $?"
     cp $HOME/.tmux.conf tmux/tmux.conf && echo "[+] tmux config new update ready" || echo "Error: $?"
@@ -19,6 +21,10 @@ pos()
 {
     echo -e "\e[1m[POS]\e[0m"
     rm -f zsh/zsh/.history && echo ".history removed from zsh"
+    rm -fr vim/vim/plugged/* && echo "plugged removed from vim"
+    rm -f links/links.his
+    rm -f links/bookmarks.html
+    rm -f links/cookies.txt
 }
 
 all
