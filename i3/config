@@ -97,23 +97,24 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Sair do i3?' -B 'Sim' 'i3-msg exit'"
 
 mode "resize" {
-    bindsym j       resize shrink width 10 px
-    bindsym k       resize grow   height 10 px
-    bindsym l       resize shrink height 10 px
-    bindsym ccedilla resize grow  width  10 px
+        bindsym j       resize shrink width 10 px
+        bindsym k       resize grow   height 10 px
+        bindsym l       resize shrink height 10 px
+        bindsym ccedilla resize grow  width  10 px
 
-    bindsym Left  resize shrink width 10 px
-    bindsym Down  resize grow   height 10 px
-    bindsym Up    resize shrink height 10 px
-    bindsym Right resize grow   width 10 px
+        bindsym Left  resize shrink width 10 px
+        bindsym Down  resize grow   height 10 px
+        bindsym Up    resize shrink height 10 px
+        bindsym Right resize grow   width 10 px
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-    bindsym $mod+r mode "default"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
-set $menu /bin/dmenu_run -b
+set $menu $HOME/.local/bin/dmenu
 bindsym $mod+d exec $menu
 
 default_border pixel 1
@@ -133,21 +134,22 @@ client.urgent           #AA0000 #000000 #FFFFFF
 client.placeholder      #000088 #000000 #FFFFFF
 client.background       #1d2021
 
-gaps inner 0
-gaps outer 0
+gaps inner 10
+gaps outer 10
 
- bar {
+bar {
     status_command i3blocks
-    position top
-    font pango:BigBlueTermPlus Nerd Font 7
-    separator_symbol "::"
-    colors {
-        background #000000
-        statusline #AAAAAA
-
-        focused_workspace #00AAAA #000000 #FFFFFF
-        active_workspace #555555 #000000 #AAAAAA
-        inactive_workspace #333333 #000000 #888888
-        urgent_workspace #AA0000 #000000 #FFFFFF
-    }
- }
+        position top
+        font pango:BigBlueTermPlus Nerd Font 7
+        separator_symbol "::"
+        colors {
+            background #1e1e1e
+                statusline #ebdbb2
+                separator  #3c3836
+                focused_workspace  #ff00ff #1e1e1e #ffffff
+                active_workspace   #c678dd #282828 #ffffff
+                inactive_workspace #3c3836 #1e1e1e #928374
+                urgent_workspace   #cc241d #1e1e1e #ffffff
+                binding_mode       #ffff00 #1e1e1e #000000
+        }
+}

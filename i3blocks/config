@@ -6,7 +6,7 @@
 [global]
 color=#AAAAAA
 separator=true
-separator_block_width=1
+separator_block_width=10
 markup=pango
 
 [title]
