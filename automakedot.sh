@@ -14,18 +14,21 @@ all()
     rm -rf zsh/zsh; mkdir zsh 2>/dev/null; cp $HOME/.zshrc zsh/zshrc;cp $HOME/.zsh zsh/zsh -rf 2>/dev/null && echo "[+] zsh config new update ready" || echo "Error: $?"
     rm -rf links; cp $HOME/.links/ links -rf 2>/dev/null && echo "[+] links config new update" || echo "Error: $?"
     rm -rf dunst; cp $HOME/.config/dunst dunst -rf 2>/dev/null && echo "[+] dunst config new update" || echo "Error: $?"
-    rm -f dmenu; cp $HOME/.local/bin/dmenu dmenu && echo "[*] dmenu script new update" || echo "Error: $?"
+    rm -f dmenu; cp $HOME/.local/bin/dmenu dmenu && echo "[+] dmenu script new update" || echo "Error: $?"
 }
 
 pos()
 {
     echo -e "\e[1m[POS]\e[0m"
-    rm -f zsh/zsh/.history && echo ".history removed from zsh"
-    rm -fr vim/vim/plugged/* && echo "plugged removed from vim"
-    rm -f links/links.his
-    rm -f links/bookmarks.html
-    rm -f links/cookies.txt
+    rm -f zsh/zsh/.history && echo "[-] .history removed from zsh"
+    rm -fr vim/vim/plugged/* && echo "[-] plugged removed from vim"
+    rm -f links/links.his links/bookmarks.html links/cookies.txt && echo "[-] links garbage removed from links"
 }
 
-all
-pos
+main()
+{
+    all
+    pos
+}
+
+main

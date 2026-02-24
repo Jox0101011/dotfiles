@@ -15,6 +15,7 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt EXTENDED_HISTORY
+HISTCONTROL=ignorespace
 
 [[ -o interactive ]] || return
 
@@ -26,14 +27,13 @@ zmodload zsh/net/tcp
 autoload -U colors && colors
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:git:*' formats '%F{green}%r%f%F{white}:%f%F{white}(%f%F{magenta}%b%f%F{white})%f%F{blue} %c%f%F{red} %u%f%F{yellow}%a%f '
+zstyle ':vcs_info:git:*' formats '%F{green}%r%f%F{white}:%f%F{white}(%f%F{magenta}%b%f%F{white})%f%F{blue}%c%f%F{red} %u%f%F{yellow}%a%f'
 zstyle ':vcs_info:git:*' enable git
 zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
-zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' check-for-changes false
 zstyle ':vcs_info:git:*' stagedstr '+'
 zstyle ':vcs_info:git:*' unstagedstr '*'
 zstyle ':vcs_info:git:*' branchformat '%b (%i)'
-
 
 setopt PROMPT_SUBST
 
@@ -46,26 +46,24 @@ preexec()
     CMD_START_TIME=$EPOCHREALTIME
 }
 
-precmd()
-{
+precmd() {
     if [[ -n $CMD_START_TIME ]]; then
         local end_time=$EPOCHREALTIME
-        local duration=$(echo "$end_time - $CMD_START_TIME" | bc -l)
+        local duration=$(( end_time - CMD_START_TIME ))
         local int_duration=${duration%.*}
 
-    if ((int_duration >= 86400)); then
-        CMD_COLOR="%F{magenta}"
-    elif ((int_duration >= 43200)); then
-        CMD_COLOR="%F{red}"
-    elif ((int_duration >= 3600)); then
-        CMD_COLOR="%F{green}"
-    elif ((int_duration >= 1)); then
-        CMD_COLOR="%F{white}"
-    fi
+        if (( int_duration >= 86400 )); then
+            CMD_COLOR="%F{magenta}"
+        elif (( int_duration >= 43200 )); then
+            CMD_COLOR="%F{red}"
+        elif (( int_duration >= 3600 )); then
+            CMD_COLOR="%F{green}"
+        elif (( int_duration >= 1 )); then
+            CMD_COLOR="%F{white}"
+        fi
 
-
-        if (( $(echo "$duration > 1" | bc -l) )); then
-            CMD_DURATION=$(printf "%2.fs " "$duration")
+        if (( duration > 1 )); then
+            CMD_DURATION="${int_duration}s "
         else
             CMD_DURATION=""
         fi
@@ -79,13 +77,12 @@ precmd()
 exit_code()
 {
     ec=$?
-    [[ ec -ne 0 ]] && echo "%B%F{red}(${ec})%f%b "
+    [[ ec -ne 0 ]] && echo "%F{red}(${ec})%f "
 }
+[[ EUID -ne 0 ]] && PS1='%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{blue} %2~%f $(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%# ' || PS1='%F{red}%n%f%F{white}@%f%F{yellow}%m%f%F{blue} %2~%f $(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%# '
+PS2='%(?.%F{green}.%F{red})%_%f%F{white} ...%f '
 
-PS1='%F{white}[%f%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{blue} %2~%f%F{white}]%f $(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%# '
-PS2='%(?.%F{green}.%F{red})[%_]%f%F{white} ->%f'
-
-## use in scripts 
+## use in scripts -w-
 # PS3=' \e[31m?> \e[0m'
 # PS4=' \e[32m+\e[0m \e[31m${FUNCNAME[0]}\e[0m:\e[90m$(basename "$0"):\e[1m$LINENO:\e[0m] '
 ##
@@ -110,7 +107,7 @@ fi
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/share/gem/ruby/3.4.0/bin:$PATH"
 
 autoload -Uz compinit
-compinit
+compinit -C
 
 bindkey -v
 export KEYTIMEOUT=1
@@ -121,12 +118,9 @@ if [[ ! -f ~/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         ~/.local/share/zinit/zinit.git
 fi
 
-if [ ! -d ".zsh/completion" ]; then
-    mkdir -p .zsh_completion 2>/dev/null
-    echo "# this completion is a test please ignore :3" | tee $HOME/.zsh/completion/example &>/dev/null
-else
-    source $HOME/.zsh/completion/* 2>/dev/null
-fi
+# if [ -d ".zsh/completion" ]; then
+#    source $HOME/.zsh/completion/* 2>/dev/null
+# fi
 
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 
@@ -137,7 +131,9 @@ zinit light wfxr/forgit
 zinit light momo-lab/zsh-abbrev-alias
 zinit light ael-code/zsh-colored-man-pages
 zinit light zsh-users/zsh-history-substring-search
+zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
+zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
 
 zstyle ':completion:*' menu select
@@ -155,18 +151,7 @@ fi
 if [ -f /usr/bin/grep ]; then
     alias grep='grep --color'
 fi
+
 if [[ -f /usr/bin/bat ]]; then
     alias bcat='bat --style=plain --paging=never --theme=gruvbox-dark'
-fi
-
-if [ -f /usr/bin/vim ]; then
-    alias vi='vim'
-fi
-
-if [[ -f /usr/bin/{bc,git,zsh,eza,bat,tmux,vim} ]]; then
-    if [[ -f /usr/bin/pacman ]]; then
-        yes | sudo pacman -S <<EOF
-    $(cat $HOME/.zsh/int/packages) 
-EOF
-    fi
 fi
