@@ -1,4 +1,4 @@
-#      ,'''|,                           .|';
+#     ,'''|,                           .|';
 # ''      ||                           ||
 # ||   '''||    .|'', .|''|, `||''|,  '||'
 # ||      ||    ||    ||  ||  ||  ||   ||
@@ -15,11 +15,11 @@ exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.png
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
-bindsym XF86MonBrightnessDown exec sh -c 'brightnessctl set 5%- && notify-send "Brilho: $(brightnessctl get)"'
-bindsym XF86MonBrightnessUp   exec sh -c 'brightnessctl set 5%+ && notify-send "Brilho: $(brightnessctl get)"'
+bindsym XF86AudioRaiseVolume exec sh -c "amixer -q set Master 5%+ && notify-send 'Volume: $(amixer get Master | grep -o '[0-9]*%' | head -n1)'"
+bindsym XF86AudioLowerVolume exec sh -c "amixer -q set Master 5%- && notify-send 'Volume: $(amixer get Master | grep -o '[0-9]*%' | head -n1)'"
+bindsym XF86AudioMute exec sh -c 'amixer set Master toggle && notify-send "Volume: Muted"'
+bindsym XF86MonBrightnessDown exec sh -c 'brightnessctl set 5%- && notify-send "Bright: $(brightnessctl get)"'
+bindsym XF86MonBrightnessUp   exec sh -c 'brightnessctl set 5%+ && notify-send "Bright: $(brightnessctl get)"'
 
 bindsym $mod+Return exec kitty
 
@@ -134,8 +134,8 @@ client.urgent           #AA0000 #000000 #FFFFFF
 client.placeholder      #000088 #000000 #FFFFFF
 client.background       #1d2021
 
-gaps inner 10
-gaps outer 10
+gaps inner 2
+gaps outer 2
 
 bar {
     status_command i3blocks

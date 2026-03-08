@@ -78,8 +78,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
- function! LightlineFilename()
+function! LightlineFilename()
   let filename = expand('%:t')
   if filename ==# ''
     let filename = ' [No Name]'
@@ -181,7 +180,7 @@ function! LightlineFiletype() abort
         \ 'conf': ' ',
         \ 'kitty': ' ',
         \ 'zsh': ' ',
-         \ 'asm': ' ',
+        \ 'asm': ' ',
         \ 'fish': ' ',
         \ 'i3config': ' '
         \ }

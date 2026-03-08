@@ -30,7 +30,6 @@ nesse caso em especifico vou usar algo mais grafico para demostrar:
 ---
 
 
-
 3. Instale tmux (multiplexador de terminal)
 ---
 
@@ -48,9 +47,12 @@ prefix + s     ; abre o seletor de janelas
 prefix + 0-9   ; troca de workspace
 prefix + setas ; troca de split rapidamente
 prefix + x     ; fecha uma split/janela
-
+prefix + c     ; cria nova workspace
+alt    + hjkl  ; movimentação na workspace atual
 prefix + $     ; renomea a sessão
 ```
+
+
 
 ## Aviso: não leve isso como um estudo real, se aprofunde em tudo que eu falar aqui, para não haver duvidas, isso é apenas um resumo
 ---
@@ -66,6 +68,7 @@ alguns eu ja falei como:
 
 porém precisamos de algo a mais :)
 
+
 ### Process Managers
 
 - htop(recomendado)
@@ -73,7 +76,8 @@ porém precisamos de algo a mais :)
 - btop
 - bashtop
 - nvtop
-- ps(com aux)
+- ps
+- `/proc`
 
 ---
 
@@ -86,6 +90,7 @@ porém precisamos de algo a mais :)
 
 ---
 
+
 ### File Managers
 
 - lf
@@ -94,6 +99,7 @@ porém precisamos de algo a mais :)
 - vifm
 
 ---
+
 
 ### Editores de textos
 
@@ -104,12 +110,14 @@ porém precisamos de algo a mais :)
 - emacs
 - nano
 
+
 ### TUI Creators
 
 - gum
 - dialog
 - whiptail
 - tput
+
 
 ### Navegadores
 
@@ -120,6 +128,7 @@ porém precisamos de algo a mais :)
 - browsh(aceita JS)
 - w3m
 - ddgr(unico CLI da lista(por ser mais uma search engine pura de terminal))
+
 
 ### Proxy's
 
@@ -142,12 +151,14 @@ porém precisamos de algo a mais :)
 - fastfetch
 - pfetch
 - ufetch
-- zathura(não é cli btw, caso queira algo cli use glow e transforma o pdf em markdown por alguma tool)
+- zathura(não é cli btw, caso queira algo cli use glow e transforma o pdf em markdown por alguma tool(como pandoc))
 - cava
+- cavasik
+- lavat
 
 ### Leitores de arquivos
 
-- lost(menção honrosa a minha tool (: )
+- lost(menção honrosa a minha tool :3 )
 - most
 - bat
 - less
@@ -155,16 +166,19 @@ porém precisamos de algo a mais :)
 
 ### Learning
 
-- man
-- tldr
+- man(manpages)
+- tldr(tealdeer)
 - wtf
-- bro
+- bro(bropages)
 - apropos
+- which
+- whatis 
 
 ### IA / LLM
 
 - aichat
 - tgpt
+- llamacpp
 
 ### IRC e Outros chats de conversa
 
@@ -172,18 +186,33 @@ porém precisamos de algo a mais :)
 - weechat
 - hexchat
 - discordo
+- endcord
 
 ### Redes
 
+- bash (pelo ``/dev/{tcp,udp}/${host}${port}``)
 - tcpdump
 - termshark
 - tshark
 - ip && iw
 ---
 
+
 ### Visualizadores de imagem e video / Tocadores de audio
 
+- jp2a
 - chafa
-- kitten +icat
+- kitten + icat
 - mpv
+- vlc(cli mode)
 ---
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+        printf("Obrigado por ter lido, até mais <333 - hzr");
+        return 0xdeadbeef;
+}
+```

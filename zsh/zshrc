@@ -1,3 +1,10 @@
+# ::::::::: .::::::.   ::   .: :::::::..     .,-:::::
+# '`````;;;;;;`    `  ,;;   ;;,;;;;``;;;;  ,;;;'````'
+#     .n[[''[==/[[[[,,[[[,,,[[[ [[[,/[[['  [[[
+#   ,$$P"    '''    $"$$$"""$$$ $$$$$$c    $$$ by hzr
+# ,888bo,_  88b    dP 888   "88o888b "88bo,`88bo,__,o,
+#  `""*UMM   "YMmMY"  MMM    YMMMMMM   "W"   "YUMMMMMP"
+
 HISTFILE="$HOME/.zsh/.history"
 if [ -d "$HISTFILE" ]; then
     continue
@@ -6,8 +13,8 @@ else
     chmod 600 "$HISTFILE"
 fi
 
-HISTSIZE="10000"
-SAVEHIST="10000"
+HISTSIZE="1000000"
+SAVEHIST="1000000"
 
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
@@ -79,7 +86,7 @@ exit_code()
     ec=$?
     [[ ec -ne 0 ]] && echo "%F{red}(${ec})%f "
 }
-[[ EUID -ne 0 ]] && PS1='%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{blue} %2~%f $(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%# ' || PS1='%F{red}%n%f%F{white}@%f%F{yellow}%m%f%F{blue} %2~%f $(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%# '
+[[ EUID -ne 0 ]] && PS1='%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{white}%f%F{blue} %2~ %f$(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
 PS2='%(?.%F{green}.%F{red})%_%f%F{white} ...%f '
 
 ## use in scripts -w-
@@ -118,6 +125,8 @@ if [[ ! -f ~/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         ~/.local/share/zinit/zinit.git
 fi
 
+
+## remove it if your there files in completion
 # if [ -d ".zsh/completion" ]; then
 #    source $HOME/.zsh/completion/* 2>/dev/null
 # fi
