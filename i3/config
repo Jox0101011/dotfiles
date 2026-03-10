@@ -15,8 +15,8 @@ exec --no-startup-id xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock
 
 exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.png
 
-bindsym XF86AudioRaiseVolume exec sh -c "amixer -q set Master 5%+ && notify-send 'Volume: $(amixer get Master | grep -o '[0-9]*%' | head -n1)'"
-bindsym XF86AudioLowerVolume exec sh -c "amixer -q set Master 5%- && notify-send 'Volume: $(amixer get Master | grep -o '[0-9]*%' | head -n1)'"
+bindsym XF86AudioRaiseVolume exec sh -c "amixer -q set Master 5%+ && notify-send 'Volume: $(pamixer --get-volume)'"
+bindsym XF86AudioLowerVolume exec sh -c "amixer -q set Master 5%- && notify-send 'Volume: $(pamixer --get-volume)'"
 bindsym XF86AudioMute exec sh -c 'amixer set Master toggle && notify-send "Volume: Muted"'
 bindsym XF86MonBrightnessDown exec sh -c 'brightnessctl set 5%- && notify-send "Bright: $(brightnessctl get)"'
 bindsym XF86MonBrightnessUp   exec sh -c 'brightnessctl set 5%+ && notify-send "Bright: $(brightnessctl get)"'

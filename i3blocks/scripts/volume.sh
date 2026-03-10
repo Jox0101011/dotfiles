@@ -3,8 +3,8 @@ vol=$(pamixer --get-volume-human)
 mute=$(pamixer --get-mute)
 
 if [[ "$mute" == "true" ]]; then
-    echo "󰝟  Mute"
+    echo "[Mute]"
 else
-    echo "  $vol"
+    echo "[Volume: $vol]"
 fi
 

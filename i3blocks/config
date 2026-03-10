@@ -26,6 +26,13 @@ interval=3600
 label=
 color=888888
 
+[volume]
+command=~/.config/i3blocks/scripts/volume.sh
+interval=1
+label=
+color=#bbaabb
+
+
 [memory]
 command=~/.config/i3blocks/scripts/memory.sh
 interval=10

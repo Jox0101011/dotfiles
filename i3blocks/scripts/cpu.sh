@@ -22,4 +22,3 @@ diff_total=$((total - prev_total))
 diff_idle=$((idle - prev_idle))
 
 (( diff_total > 0 )) && echo $((100 * (diff_total - diff_idle) / diff_total))"%"
-
