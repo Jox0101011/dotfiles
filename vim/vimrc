@@ -6,6 +6,7 @@
 "                 \/          \/             \/ by hzr
 
 call plug#begin('~/.vim/plugged')
+  Plug 'lervag/vimtex'
   Plug 'mengelbrecht/lightline-bufferline'
   Plug 'honza/vim-snippets'
 "  Plug 'c9s/perlomni.vim'
@@ -32,6 +33,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
   Plug 'ryanoasis/vim-devicons'
   Plug 'Stoozy/vimcord'
+  Plug 'mopp/autodirmake.vim'
 call plug#end()
 
 if &shell =~# 'zsh$'
@@ -51,6 +53,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 set termguicolors
 set background=dark
+set hidden
+" set autowriteall
 colorscheme gruvbox
 
 set tabstop=4
@@ -64,7 +68,6 @@ set smartcase
 set incsearch
 set hlsearch
 
-set mouse=a
 set clipboard=unnamedplus
 
 set wrap
@@ -182,7 +185,8 @@ function! LightlineFiletype() abort
         \ 'zsh': ' ',
         \ 'asm': ' ',
         \ 'fish': ' ',
-        \ 'i3config': ' '
+        \ 'i3config': ' ',
+        \ 'startify': '-w-'
         \ }
   let l:ft = &filetype !=# '' ? &filetype : 'none'
   let l:icon = has_key(l:icons, l:ft) ? l:icons[l:ft] : ' '

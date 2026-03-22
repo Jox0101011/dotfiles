@@ -19,8 +19,7 @@ SAVEHIST="1000000"
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS HIST_IGNORE_SPACE
 setopt EXTENDED_HISTORY
 HISTCONTROL=ignorespace
 
@@ -164,3 +163,6 @@ fi
 if [[ -f /usr/bin/bat ]]; then
     alias bcat='bat --style=plain --paging=never --theme=gruvbox-dark'
 fi
+
+alias ..="cd .."
+alias ...="cd ../.."
