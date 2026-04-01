@@ -164,5 +164,9 @@ if [[ -f /usr/bin/bat ]]; then
     alias bcat='bat --style=plain --paging=never --theme=gruvbox-dark'
 fi
 
+if [[ -n z ]]; then
+    alias cd='z'
+fi
+
 alias ..="cd .."
 alias ...="cd ../.."

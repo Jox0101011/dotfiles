@@ -10,7 +10,7 @@ function load_colors()
   C3="\e[31m" #Red
   C4="\e[35m" #TextColor1 Magenta
   C5="\e[34m" #blue
-  C6="\e[32m" # green
+  C6="\e[32m" #green
  else
   C0="";C1="";C2="";C3="";C4="";C5="";C6=""
  fi
@@ -36,10 +36,10 @@ function load_config()
  [[ -z $FLAG_CHAR ]]&&FLAG_CHAR="󰈻"&&config_fail=1
  [[ -z $NAVIGATION_KEYS ]]&&NAVIGATION_KEYS="vim"&&config_fail=1
  if [[ $MINES_QUANTITY -gt $((WIDTH*HEIGHT/4)) ]];then MINES_QUANTITY=$((WIDTH*HEIGHT/4));fi # protect
- if [[ $WIDTH -lt 5 ]];then WIDTH=5;fi # protect
- if [[ $HEIGHT -lt 5 ]];then HEIGHT=5;fi # protect
- if [[ $WIDTH -gt 50 ]];then WIDTH=50;fi # protect
- if [[ $HEIGHT -gt 50 ]];then HEIGHT=50;fi # protect
+ if [[ $WIDTH -lt 5 ]];then WIDTH=10;fi # protect; 5
+ if [[ $HEIGHT -lt 5 ]];then HEIGHT=10;fi # protect; 5
+ if [[ $WIDTH -gt 50 ]];then WIDTH=100;fi # protect; 50
+ if [[ $HEIGHT -gt 50 ]];then HEIGHT=100;fi # protect; 50
  if [[ $NAVIGATION_KEYS == 'vim' ]];then NAV_LEFT='h';NAV_DOWN='j';NAV_UP='k';NAV_RIGHT='l';CHEAT_NAV='hjkl';fi
  if [[ $NAVIGATION_KEYS == 'aswd' ]];then NAV_LEFT='a';NAV_DOWN='s';NAV_UP='w';NAV_RIGHT='d';CHEAT_NAV='aswd';fi
  load_colors
