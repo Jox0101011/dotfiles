@@ -85,7 +85,7 @@ exit_code()
     ec=$?
     [[ ec -ne 0 ]] && echo "%F{red}(${ec})%f "
 }
-[[ EUID -ne 0 ]] && PS1='%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{white}%f%F{blue} %2~ %f$(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
+PS1='%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{white}%f%F{blue} %2~ %f$(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
 PS2='%(?.%F{green}.%F{red})%_%f%F{white} ...%f '
 
 ## use in scripts -w-
@@ -93,9 +93,9 @@ PS2='%(?.%F{green}.%F{red})%_%f%F{white} ...%f '
 # PS4=' \e[32m+\e[0m \e[31m${FUNCNAME[0]}\e[0m:\e[90m$(basename "$0"):\e[1m$LINENO:\e[0m] '
 ##
 
-if command -v zoxide >/dev/null; then
-    eval "$(zoxide init zsh)"
-fi
+# if command -v zoxide >/dev/null; then
+#     eval "$(zoxide init zsh)"
+# fi
 
 if [[ -z "$TMUX" ]]; then
     tmux attach -t main 2>/dev/null || tmux new -s main
@@ -105,6 +105,13 @@ export MANLANG=pt_BR.UTF-8
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
+export LESS='-R -M -i -J -w -z-4'
+export LESS_TERMCAP_md=$'\e[1;34m'
+export LESS_TERMCAP_so=$'\e[1;33;44m'
+export LESS_TERMCAP_us=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m'
 
 if [[ -f $HOME/.local/bin ]]; then
     mkdir -p "$HOME/.local/bin"
@@ -132,13 +139,7 @@ fi
 
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 
-zinit light lukechilds/zsh-nvm
-zinit light junegunn/fzf
 zinit light hlissner/zsh-autopair
-zinit light wfxr/forgit
-zinit light momo-lab/zsh-abbrev-alias
-zinit light ael-code/zsh-colored-man-pages
-zinit light zsh-users/zsh-history-substring-search
 zinit ice wait lucid
 zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
@@ -150,23 +151,19 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-if [[ -f /usr/bin/eza ]]; then
-    alias ls='eza --color=always'
-else
+# if [[ -f /usr/bin/eza ]]; then
+#    alias ls='eza --color=always'
+# else
     alias ls='ls --color=always'
-fi
+# fi
 
-if [ -f /usr/bin/grep ]; then
-    alias grep='grep --color'
-fi
+# if [ -f /usr/bin/grep ]; then
+#     alias grep='grep --color'
+# fi
 
-if [[ -f /usr/bin/bat ]]; then
-    alias bcat='bat --style=plain --paging=never --theme=gruvbox-dark'
-fi
-
-if [[ -n z ]]; then
-    alias cd='z'
-fi
+# if [[ -n z ]]; then
+#     alias cd='z' # bro just use cd -w-
+# fi
 
 alias ..="cd .."
 alias ...="cd ../.."
