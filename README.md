@@ -13,3 +13,5 @@
 - VIM
 - TMUX
 - AND MORE!!
+
+> use install.sh
