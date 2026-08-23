@@ -165,33 +165,34 @@ let g:lightline = {
 
 function! LightlineFiletype() abort
   let l:icons = {
-        \ 'python': ' ',
-        \ 'sh': ' ',
-        \ 'pdf': ' ', 
-        \ 'vim': ' ',
-        \ 'c': ' ',
-        \ 'cpp': ' ',
-        \ 'perl': ' ',
-        \ 'html': ' ',
-        \ 'lua': ' ',
-        \ 'rust': ' ',
-        \ 'javascript': ' ',
-        \ 'typescript': ' ',
-        \ 'json': ' ',
-        \ 'css': ' ',
-        \ 'markdown': ' ',
-        \ 'go': ' ',
-        \ 'php': ' ',
-        \ 'tmux': ' ',
-        \ 'toml': ' ',
-        \ 'conf': ' ',
-        \ 'kitty': ' ',
-        \ 'zsh': ' ',
-        \ 'asm': ' ',
-        \ 'fish': ' ',
-        \ 'i3config': ' ',
-        \ 'startify': '-w-'
-        \ }
+              \ 'ruby': '',
+              \ 'python': ' ',
+              \ 'sh': ' ',
+              \ 'pdf': ' ', 
+              \ 'vim': ' ',
+              \ 'c': ' ',
+              \ 'cpp': ' ',
+              \ 'perl': ' ',
+              \ 'html': ' ',
+              \ 'lua': ' ',
+              \ 'rust': ' ',
+              \ 'javascript': ' ',
+              \ 'typescript': ' ',
+              \ 'json': ' ',
+              \ 'css': ' ',
+              \ 'markdown': ' ',
+              \ 'go': ' ',
+              \ 'php': ' ',
+              \ 'tmux': ' ',
+              \ 'toml': ' ',
+              \ 'conf': ' ',
+              \ 'kitty': ' ',
+              \ 'zsh': ' ',
+              \ 'asm': ' ',
+              \ 'fish': ' ',
+              \ 'i3config': ' ',
+              \ 'startify': '-w-'
+              \ }
   let l:ft = &filetype !=# '' ? &filetype : 'none'
   let l:icon = has_key(l:icons, l:ft) ? l:icons[l:ft] : ' '
   return printf('%s %s', l:icon, l:ft)
@@ -206,15 +207,15 @@ let g:lightline#bufferline#show_number = 2
 let g:lightline#bufferline#modified = '  '
 let g:lightline#bufferline#unnamed = ' [No Name]'
 let g:lightline.tabline = {
-      \ 'left': [ ['buffers'] ],
-      \ 'right': [ ['close'] ]
-      \ }
+            \ 'left': [ ['buffers'] ],
+            \ 'right': [ ['close'] ]
+            \ }
 let g:lightline.component_expand = {
-      \ 'buffers': 'lightline#bufferline#buffers'
-      \ }
+            \ 'buffers': 'lightline#bufferline#buffers'
+            \ }
 let g:lightline.component_type = {
-      \ 'buffers': 'tabsel'
-      \ }
+            \ 'buffers': 'tabsel'
+            \ }
 
 function! LightlineClock()
     return ' ' . strftime('%H:%M:%S')
@@ -222,20 +223,20 @@ endfunction
 let g:lightline.component_function.clock = 'LightlineClock'
 
 let g:lightline.active.right = [
-      \ ['clock'], ['lineinfo'], ['percent'], ['filetype']
-      \ ]
+            \ ['clock'], ['lineinfo'], ['percent'], ['filetype']
+            \ ]
 
 set noshowmode
 set showtabline=2
 set laststatus=2
 
 augroup lightline_refresh
-  autocmd!
-  autocmd BufAdd,BufDelete,BufEnter * call lightline#update()
+    autocmd!
+    autocmd BufAdd,BufDelete,BufEnter * call lightline#update()
 augroup END
 
 if has("termguicolors")
-  set termguicolors
+    set termguicolors
 endif
 
 nnoremap <Tab> :bnext <CR>

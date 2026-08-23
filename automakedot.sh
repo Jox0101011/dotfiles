@@ -26,10 +26,66 @@ pos()
     rm -f links/links.his links/bookmarks.html links/cookies.txt && echo "[-] links garbage removed from links"
 }
 
-main()
+# backup function using philosofy l4ycode
+backup()
 {
-    all
-    pos
+    copytool="rsync -rv"
+    echo "[LOG] backup init" >> ./backup/log.txt
+    [[ -d ~/.zsh ]] && {
+        $copytool ~/.zsh/ ./backup/zsh &&
+        echo "[LOG] ~/.zsh backup in ./backup/zsh" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.zsh backup failed to ./backup/zsh (no exists)" >> ./backup/log.txt
+    }
+    [[ -d ~/.config ]] && {
+        $copytool --exclude="mozilla*" ~/.config ./backup/config &&
+        echo "[LOG] ~/.config backup in ./backup/config/" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.config backup failed to ./backup/config (no exists)" >> ./backup/log.txt
+    }
+    [[ -d ~/.vim ]] && {
+        $copytool ~/.vim/ ./backup/vim &&
+        echo "[LOG] ~/.vim backup in ./backup/vim" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.vim backup failed in ./backup/vim (no exists)" >> ./backup/log.txt
+    }
+    [[ -f ~/.vimrc ]] && {
+        $copytool ~/.vimrc ./backup/vimrc &&
+        echo "[LOG] ~/.vimrc backup in ./backup/vimrc" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.vimrc backup in ./backup/vimrc failed (no exists)" >> ./backup/log.txt
+    }
+    [[ -d ~/.links ]] && {
+        $copytool ~/.links/ ./backup/links &&
+        echo "[LOG] ~/.links backup in ./backup/links" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.links backup in ./backup/links failed (no exists)" >> ./backup/log.txt
+    }
+    [[ -f ~/.tmux.conf ]] && {
+        $copytool ~/.tmux.conf ./backup/tmux.conf &&
+        echo "[LOG] ~/.tmux.conf backup in ./backup/tmux.conf" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.tmux.conf backup in ./backup/tmux.conf failed (no exists)" >> ./backup/log.txt
+    }
+    [[ -d ~/.tmux ]] && {
+        $copytool ~/.tmux/ ./backup/tmux &&
+        echo "[LOG] ~/.tmux backup in ./backup/tmux" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.tmux backup in ./backup/tmux failed (no exists)" >> ./backup/log.txt
+    }
+    [[ -d ~/.local/bin ]] && {
+        $copytool ~/.local/bin/ ./backup/bin &&
+        echo "[LOG] ~/.local/bin backup in ./backup/bin" >> ./backup/log.txt
+    } || {
+        echo "[ERR] ~/.local/bin backup in ./backup/bin failed (no exists)" >> ./backup/log.txt
+    }
+    echo "[LOG] backup end" >> ./backup/log.txt
 }
 
-main
+case $1 in
+    b)
+        backup;;
+    *)
+        all
+        pos
+esac

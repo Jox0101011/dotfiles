@@ -85,7 +85,7 @@ exit_code()
     ec=$?
     [[ ec -ne 0 ]] && echo "%F{red}(${ec})%f "
 }
-PS1='%F{cyan}%n%f%F{white}@%f%F{yellow}%m%f%F{white}%f%F{blue} %2~ %f$(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
+PS1='%F{green}%n%f%F{white}@%f%F{yellow}%m%f%F{white}%f:%F{blue}%~ %f$(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
 PS2='%(?.%F{green}.%F{red})%_%f%F{white} ...%f '
 
 ## use in scripts -w-
@@ -167,3 +167,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 
 alias ..="cd .."
 alias ...="cd ../.."
+eval "$(/home/hzr/.local/bin/mise activate zsh)"
+
+# kimi-code
+export PATH="/home/hzr/.kimi-code/bin:$PATH"
