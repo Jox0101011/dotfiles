@@ -15,7 +15,7 @@ mkdot()
 {
     echo "[LOG] removing files"
     FILES=("~/.local/bin", "~/.zsh", "~/.config/dunst", "~/.config/fastfetch", "~/.config/kitty", "~/.config/i3", "~/.config/i3blocks", "~/.links", "~/.config/htop", "~/.zshrc")
-    for i in FILES[@]; do
+    for i in "${FILES[@]}"; do
         rm -ri "$i" && { _log "$i removed"
         } || { _err "$i remove failed"; }
     done && _log "removing files sucess" || echo "[ERR] removing files failed"
@@ -45,11 +45,13 @@ main()
     else
         _err "Making backup in ./backup: ./automakedot.sh (no exists)"
         read -np "continue? [y/N] " pr
-        case pr
-            n|N|*)
+        case pr in
+            n*|N*|*)
                 exit 1 ;;
-            y|Y)
-                mkdot
+            y*|Y*)
+                mkdot ;;
         esac
     fi
 }
+
+main
