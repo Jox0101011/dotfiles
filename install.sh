@@ -46,9 +46,9 @@ main()
         _err "Making backup in ./backup: ./automakedot.sh (no exists)"
         read -np "continue? [y/N] " pr
         case pr
-            n*|N*|*)
+            n|N|*)
                 exit 1 ;;
-            y*|Y*)
+            y|Y)
                 mkdot
         esac
     fi
