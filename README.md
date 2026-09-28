@@ -7,14 +7,17 @@
 
 ---
 
-|zsh|
-|----|----|
+### zsh
+
+|Item|Details|
 |Version | `zsh 5.9.2 (x86_64-musl)`|
 |Minimalist | Yes |
 |Description| Config Shell |
 
 
-|qutebrowser|
-|----|----|
+### qutebrowser
+
+|Item|Details|
+| Version | Null |
 | Minimalist | Yes |
-|----|----|
+| Description| Config Browser |
