@@ -19,6 +19,7 @@
 ### qutebrowser
 
 |Item|Details|
+|:---|:---|
 | Version | Null |
 | Minimalist | Yes |
 | Description| Config Browser |
