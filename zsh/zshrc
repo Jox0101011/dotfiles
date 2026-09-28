@@ -5,6 +5,10 @@
 # ,888bo,_  88b    dP 888   "88o888b "88bo,`88bo,__,o,
 #  `""*UMM   "YMmMY"  MMM    YMMMMMM   "W"   "YUMMMMMP"
 
+[[ -z SWAYSOCK ]] && [ "$(tty)" = "/dev/tty1" ] && {
+    /usr/bin/start-session
+}
+
 HISTFILE="$HOME/.zsh/.history"
 if [ -d "$HISTFILE" ]; then
     continue
@@ -47,45 +51,7 @@ typeset -g CMD_START_TIME
 typeset -g CMD_DURATION
 typeset -g CMD_COLOR
 
-preexec()
-{
-    CMD_START_TIME=$EPOCHREALTIME
-}
-
-precmd() {
-    if [[ -n $CMD_START_TIME ]]; then
-        local end_time=$EPOCHREALTIME
-        local duration=$(( end_time - CMD_START_TIME ))
-        local int_duration=${duration%.*}
-
-        if (( int_duration >= 86400 )); then
-            CMD_COLOR="%F{magenta}"
-        elif (( int_duration >= 43200 )); then
-            CMD_COLOR="%F{red}"
-        elif (( int_duration >= 3600 )); then
-            CMD_COLOR="%F{green}"
-        elif (( int_duration >= 1 )); then
-            CMD_COLOR="%F{white}"
-        fi
-
-        if (( duration > 1 )); then
-            CMD_DURATION="${int_duration}s "
-        else
-            CMD_DURATION=""
-        fi
-
-        unset CMD_START_TIME
-    fi
-
-    vcs_info
-}
-
-exit_code()
-{
-    ec=$?
-    [[ ec -ne 0 ]] && echo "%F{red}(${ec})%f "
-}
-PS1='%F{green}%n%f%F{white}@%f%F{yellow}%m%f%F{white}%f:%F{blue}%~ %f$(exit_code)${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
+PS1='%F{white}[%n%f%F{white}@%f%F{green}%m%f%F{white}]%f:%F{blue}%~ %f${vcs_info_msg_0_}%f${CMD_COLOR}${CMD_DURATION}%f%F{white}%#%f '
 PS2='%(?.%F{green}.%F{red})%_%f%F{white} ...%f '
 
 ## use in scripts -w-
@@ -125,25 +91,10 @@ compinit -C
 bindkey -v
 export KEYTIMEOUT=1
 
-if [[ ! -f ~/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    mkdir -p ~/.local/share/zinit
-    git clone https://github.com/zdharma-continuum/zinit.git \
-        ~/.local/share/zinit/zinit.git
-fi
-
-
 ## remove it if your there files in completion
 # if [ -d ".zsh/completion" ]; then
 #    source $HOME/.zsh/completion/* 2>/dev/null
 # fi
-
-source ~/.local/share/zinit/zinit.git/zinit.zsh
-
-zinit light hlissner/zsh-autopair
-zinit ice wait lucid
-zinit light zsh-users/zsh-autosuggestions
-zinit ice wait lucid
-zinit light zsh-users/zsh-syntax-highlighting
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
@@ -162,12 +113,8 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # fi
 
 # if [[ -n z ]]; then
-#     alias cd='z' # bro just use cd -w-
+#     alias cd='z' # just use cd -w-
 # fi
 
 alias ..="cd .."
 alias ...="cd ../.."
-eval "$(/home/hzr/.local/bin/mise activate zsh)"
-
-# kimi-code
-export PATH="/home/hzr/.kimi-code/bin:$PATH"

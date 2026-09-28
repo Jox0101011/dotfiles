@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+BAR=yambar
+CONF="-c $HOME/.config/yambar/config.yaml"
+pgrep "$BAR" && {
+    pkill "$BAR"
+} || {
+    /usr/bin/$BAR $CONF &
+}

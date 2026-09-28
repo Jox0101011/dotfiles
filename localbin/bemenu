@@ -1,0 +1,18 @@
+#!/bin/sh
+
+bemenu-run \
+  --ignorecase \
+  --fn "GoMono Nerd Font 12" \
+  --line-height 10 \
+  --center \
+  --list 8 \
+  --prompt "run:" \
+  --tb "#ebe7f1"  --tf "#2f2a45"  \
+  --fb "#ebe7f1"  --ff "#2f2a45"  \
+  --nb "#ebe7f1"  --nf "#2f2a45"  \
+  --hb "#f5a9b8"  --hf "#2f2a45"  \
+  --ab "#ebe7f1"  --af "#7f7a99"  \
+  --scb "#5bcefa" --scf "#2f2a45" \
+  --scrollbar autohide \
+  --border 2 \
+  --bdr "#5bcefa"
