@@ -113,7 +113,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 # fi
 
 # if [[ -n z ]]; then
-#     alias cd='z' # just use cd -w-
+#     alias cd='z' # bro just use cd -w-
 # fi
 
 alias ..="cd .."

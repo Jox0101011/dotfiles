@@ -4,6 +4,8 @@ set $term foot
 font pango:GoMono Nerd Font 10
 
 input type:keyboard {
+    repeat_delay 150
+    repeat_rate 60
     xkb_layout br
     xkb_model abnt2
 }

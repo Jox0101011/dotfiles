@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://media1.giphy.com/media/v1.Y2lkPTZjMDliOTUycmJxYjQ0cXN2NXN1bnMwN3lzNnU5anNobGg0OTBiZjVweTRtbnc1cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cMykLo3NlvMc2RqmYu/giphy.gif" width=250 />
+  <img src="./FashionsPhotos/" width=350 />
 </p>
 
 ---
@@ -7,11 +7,15 @@
 
 ---
 
-- ZSH
-- PACKAGES
-- KITTY
-- VIM
-- TMUX
-- AND MORE!!
+|zsh|
+|Version | `zsh 5.9.2 (x86_64-musl)`|
+|----|----|
+|Minimalist | Yes |
+|Description| Config Shell |
+|----|----|
 
-> use install.sh
+
+|qutebrowser|
+|----|----|
+| Minimalist | Yes |
+|----|----|

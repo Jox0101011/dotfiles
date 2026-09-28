@@ -16,7 +16,8 @@ all()
     rm -rf localbin; cp -r $HOME/.local/bin/ localbin/ && echo "[+] dmenu script new update ready" || echo "Error: $?"
     cp $HOME/.config/endcord/config.ini endcord/config.ini 2>/dev/null && echo "[+] endcord config new update ready" || echo "Error: $?"
     rm -f qutebrowser/config.py; cp $HOME/.config/qutebrowser/config.py qutebrowser/config.py 2>/dev/null && echo "[+] qutebrowser config add" || echo "Error: $?"
-    rm -rf yambar && cp $HOME/.config/yambar yambar 2>/dev/null && echo "[+] yambar config add" || echo "Error: $?"
+    rm -rf yambar; cp $HOME/.config/yambar yambar 2>/dev/null && echo "[+] yambar config add" || echo "Error: $?"
+    rm -rf irssi; cp -r $HOME/.irssi irssi 2>/dev/null && echo "[+] irssi config add" || echo "Error: $?"
 }
 
 pos()

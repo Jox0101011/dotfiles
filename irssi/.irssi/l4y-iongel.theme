@@ -1,0 +1,143 @@
+# l4y-iongel.theme
+# Tema para irssi — cores pastéis + símbolos unicode fofos
+# por lay
+#
+# Instalação:
+#   1. copie este arquivo para ~/.irssi/l4y-iongel.theme
+#   2. dentro do irssi: /set theme l4y-iongel
+#   3. /save
+#
+# Legenda dos símbolos usados:
+#   ✿ prompt de mensagem pública    ♡ prompt de mensagem própria
+#   ♪ mensagem privada              ★ menção/highlight
+#   ❀ tópico                        ☘ join
+#   ↩ part                          ☁ quit
+#   ✂ kick                          ↻ troca de nick
+#   ✧ /me (ação)                    ☎ notice
+#   ⚠ erro                          ⋆ marcador de linha
+
+theme = "l4y-iongel";
+
+default_color = "-1";
+
+replaces = { };
+
+abstracts = {
+  ##
+  ## genérico
+  ##
+
+  line_start = "%C⋆%n ";
+  timestamp = "%m$*%n";
+  hilight = "%_%Y$*%n";
+  error = "%_%M⚠ $*%n";
+  channel = "%_%C$*%n";
+  nick = "%_%M$*%n";
+  nickhost = "%K$*%n";
+  server = "%_%B$*%n";
+  comment = "%K($*)%n";
+  reason = "{comment $*}";
+  mode = "%K[$*]%n";
+
+  ##
+  ## específico de canal
+  ##
+
+  channick_hilight = "%_%Y$*%n";
+  chanhost_hilight = "%K$*%n";
+  channick = "%M$*%n";
+  chanhost = "%K$*%n";
+  channelhilight = "%_%C$*%n";
+  ban = "$*";
+
+  ##
+  ## mensagens
+  ##
+
+  msgnick = "%C✿%n$0$1-%C ➤%n ";
+  ownmsgnick = "%M♡%n$0$1-%M ➤%n ";
+  ownnick = "%_%M$*%n";
+  pubmsgnick = "{msgnick $[-9]0 $1-}";
+  pubnick = "%_%C$*%n";
+  pubmsgmenick = "%Y★%n$[-9]0$1-%Y ➤%n ";
+  menick = "%_%Y$*%n";
+  pubmsghinick = "{pubmsgmenick $[-9]0 $1-}";
+  msgchannel = "%K:%n$*";
+  ownmsgchannel = "{msgchannel $*}";
+  pubmsgchannel = "{msgchannel $*}";
+
+  privmsg = "%B♪%n$0%K(%c$1%K)%n ";
+  ownprivmsg = "%M♡%n%Mme%K(%c$1%K)%n ";
+  ownprivmsgnick = "{ownprivmsg $*}";
+  privmsgnick = "{privmsg $*}";
+
+  ownaction = "%M✧%n $*";
+  action = "%C✧%n $*";
+  ownaction_target = "%M✧%n $0 $1";
+  action_target = "%C✧%n $0 $1";
+
+  ##
+  ## netsplits
+  ##
+
+  netsplit = "%K$*%n";
+  netjoin = "%K$*%n";
+
+  ##
+  ## notices / ctcp
+  ##
+
+  ownnotice = "%C☎%n$1%K(%c$0%K)%n ";
+  notice = "%C☎%n$*%C ›%n ";
+  ownnotice_target = "$*";
+  notice_target = "%K(%n$*%K)%n";
+
+  ownctcp = "%C[%n$0%K(%C$1%K)%n]%n ";
+  ctcp = "%_$*%n";
+
+  ##
+  ## wallops
+  ##
+
+  wallop = "%_$*%_: ";
+  wallop_nick = "%_$*%_";
+  wallop_action = "%C✧%n $*";
+
+  ##
+  ## tópico
+  ##
+
+  topic = "%B❀%n$*";
+  topicnick = "%_%M$*%n";
+
+  ##
+  ## statusbar — fundo rosa legível
+  ##
+
+  # fundo rosa (magenta) + texto branco em negrito por padrão
+  sb_background = "%5%_%W";
+
+  sb = " $*";
+  sbmode = "%_%Y(+$*)%n";
+  sbaway = "%_%C (zzz ☾)%n";
+  sbservertag = "%_%W:%n$0 %W(mude com ^X)%n";
+  sblag = "%_%Y (Lag: $0-)%n";
+  sbact = "%W$*%n";
+  sbact_act = "%_%W$*%n";
+  sbact_msg = "%_%C$*%n";
+  sbact_hilight = "%_%Y★$*%n";
+  sbact_hilight_color = "%_%Y$0%n";
+};
+
+formats = {
+  "fe-common/core" = {
+    join = "%G☘%n {channick_hilight $0} {chanhost $1} entrou em {channelhilight $2}";
+    part = "%C↩%n {channick $0} {chanhost $1} saiu de {channelhilight $2} {reason $3}";
+    quit = "%K☁%n {channick $0} {chanhost $1} saiu {reason $2}";
+    kick = "%M✂%n {channick $0} foi expulso(a) de {channelhilight $1} por {nick $2} {reason $3}";
+    nick_changed = "%Y↻%n {channick $0} agora é conhecido(a) como {channick_hilight $1}";
+    your_nick_changed = "%Y↻%n você agora é conhecido(a) como {channick_hilight $0}";
+    topic_new = "%B❀%n {nick $0} definiu o tópico de {channelhilight $1} para: $2";
+    topic_unset = "%B❀%n {nick $0} removeu o tópico de {channelhilight $1}";
+  };
+};

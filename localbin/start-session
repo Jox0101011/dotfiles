@@ -1,6 +1,0 @@
-#!/usr/bin/bash
-# put on /usr/bin
-
-rfkill unblock all
-pgrep pipewire || pipewire &
-pgrep sway || exec dbus-run-session -- sway
