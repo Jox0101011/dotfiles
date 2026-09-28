@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./FashionsPhotos/" width=350 />
+  <img src="./FashionsPhotos/2026-09-27_22-41-21.png" width=350 />
 </p>
 
 ---
