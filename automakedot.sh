@@ -10,7 +10,7 @@ all()
     rm -rf sway; cp $HOME/.config/sway sway -rf 2>/dev/null && echo "[+] sway config new update ready" || echo "Error: $?"
     rm -rf htop; cp $HOME/.config/htop htop -rf 2>/dev/null && echo "[+] htop new upate ready" || echo "Error: $?"
     rm -rf foot; cp $HOME/.config/foot foot -rf 2>/dev/null && echo "[+] foot new update ready" || echo "Error: $?"
-    rm -rf zsh/zsh; mkdir zsh 2>/dev/null; cp $HOME/.zshrc zsh/zshrc;cp $HOME/.zsh zsh/zsh -rf 2>/dev/null && echo "[+] zsh config new update ready" || echo "Error: $?"
+    rm -rf zsh; mkdir zsh 2>/dev/null; cp $HOME/.zshrc zsh/zshrc;cp $HOME/.zsh zsh/zsh -rf 2>/dev/null && echo "[+] zsh config new update ready" || echo "Error: $?"
     rm -rf links; cp $HOME/.links/ links -rf 2>/dev/null && echo "[+] links config new update ready" || echo "Error: $?"
     rm -rf dunst; cp $HOME/.config/dunst dunst -rf 2>/dev/null && echo "[+] dunst config new update ready" || echo "Error: $?"
     rm -rf localbin; cp -r $HOME/.local/bin/ localbin/ && echo "[+] dmenu script new update ready" || echo "Error: $?"
